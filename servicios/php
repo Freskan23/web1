@@ -1,0 +1,231 @@
+// Ejemplo de shortcode para la sección hero
+function insight_hero_shortcode() {
+    ob_start();
+    ?>
+    <section class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>
+                    Psicólogos en Valladolid: El primer paso para 
+                    <span class="accent" style="color:#D09193;">SANAR</span>
+                    <br>
+                    es permitirte <span class="highlight-light">SENTIR</span>
+                </h1>
+                <a href="https://wa.me/+34611731123" class="btn">Solicita tu cita</a>
+            </div>
+        </div>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('insight_hero', 'insight_hero_shortcode');
+
+// functions.php
+function insight_sections_styles() {
+    wp_enqueue_style(
+        'insight-sections',
+        get_template_directory_uri() . '/css/wordpress-styles.css',
+        array(),
+        '1.0.0'
+    );
+}
+add_action('wp_enqueue_scripts', 'insight_sections_styles');
+
+// Ejemplo de página completa usando shortcodes
+function insight_landing_page() {
+    return '
+        [insight_top_banner]
+        [insight_header]
+        [insight_hero]
+        [insight_intro]
+        [insight_areas]
+        [insight_servicios]
+        [insight_footer]
+    ';
+}
+
+// Shortcode para el top banner
+function insight_top_banner_shortcode() {
+    ob_start();
+    ?>
+    <div class="top-banner">
+        <p>
+            Agenda tu cita
+            <span class="cta-icons">
+                <a href="tel:+34611731123" class="cta-icon-link" title="Llamar"><i class="fas fa-phone"></i></a>
+                <a href="sms:+34611731123" class="cta-icon-link" title="Mensaje de texto"><i class="fas fa-comment-dots"></i></a>
+                <a href="https://wa.me/+34611731123" class="cta-icon-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </span>
+        </p>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('insight_top_banner', 'insight_top_banner_shortcode');
+
+// Shortcode para el header
+function insight_header_shortcode() {
+    ob_start();
+    ?>
+    <header>
+        <div class="main-header">
+            <div class="logo">
+                <img src="logo solo.png" alt="InSight Psicología Logo">
+            </div>
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li class="submenu-container">
+                        <a href="/servicios.html" class="submenu-trigger">Servicios / Tarifas <i class="fa fa-angle-down submenu-arrow"></i></a>
+                        <div class="submenu">
+                            <a href="/adultos.html">Psicólogo para adultos</a>
+                            <a href="/terapia-grupo.html">Psicólogo terapia de grupo</a>
+                            <a href="/pareja-familia.html">Psicólogo pareja / familiar</a>
+                            <a href="/ninos-adolescentes.html">Psicólogo niños o adolescentes</a>
+                            <a href="/psicologo-online.html">Psicólogo online</a>
+                        </div>
+                    </li>
+                    <li><a href="/terapia.html">Sobre la terapia</a></li>
+                    <li><a href="/nosotros.html">Conócenos</a></li>
+                    <li><a href="/contactar-con-psicologo.html">Contacto</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/materialdescargable.html">Recursos gratis</a></li>
+                </ul>
+            </nav>
+            <div class="whatsapp-button">
+                <a href="https://wa.me/+34611731123"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </header>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('insight_header', 'insight_header_shortcode');
+
+// Shortcode para la sección de intro
+function insight_intro_shortcode() {
+    ob_start();
+    ?>
+    <section class="intro">
+        <div class="container">
+            <h2 class="dual-title">PSICÓLOGOS ESPECIALIZADOS EN <span class="accent">VALLADOLID</span></h2>
+            <p>A lo largo de nuestra vida se nos presentan dificultades que nos impiden seguir adelante con nuestros objetivos. Muchos de ellos somos capaces de solventarlos por nosotros mismos, pero a veces sentimos que nos sobrepasan y que escapan a nuestro control.</p>
+            <p>Las sesiones de <strong>Terapia individual</strong> con nuestras psicólogas en Valladolid ayudan a los pacientes a desarrollar una actitud positiva hacia las situaciones más difíciles de la vida.</p>
+        </div>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('insight_intro', 'insight_intro_shortcode');
+
+// Shortcode para la sección de áreas
+function insight_areas_shortcode() {
+    ob_start();
+    ?>
+    <section id="servicios" class="areas">
+        <div class="container">
+            <h2 class="dual-title better-contrast-text">Áreas de tratamiento <span class="accent">psicológico</span> en Valladolid</h2>
+            <div class="areas-grid">
+                <div class="area-item">Ansiedad</div>
+                <div class="area-item">Obsesiones</div>
+                <div class="area-item">Preocupaciones excesivas</div>
+                <div class="area-item">Estrés</div>
+                <div class="area-item">Relaciones de dependencia</div>
+                <div class="area-item">Tristeza o Depresión</div>
+                <div class="area-item">Duelo</div>
+                <div class="area-item">Vacío existencial</div>
+                <div class="area-item">Gestión emocional</div>
+                <div class="area-item">Habilidades sociales</div>
+                <div class="area-item">Comunicación y asertividad</div>
+                <div class="area-item">Miedos sobre tu salud</div>
+                <div class="area-item">Fobias</div>
+                <div class="area-item">Sentimiento de Soledad</div>
+            </div>
+            <div class="cta-container">
+                <a href="https://wa.me/+34611731123" class="btn">Pide cita en Valladolid / online</a>
+            </div>
+        </div>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('insight_areas', 'insight_areas_shortcode');
+
+// Shortcode para la sección de servicios
+function insight_servicios_shortcode() {
+    ob_start();
+    ?>
+    <section class="servicios-grid">
+        <div class="container">
+            <h2 class="dual-title better-contrast-text">Nuestros servicios de <span class="accent">psicología</span> en Valladolid</h2>
+            <div class="servicios-items-grid">
+                <div class="servicio">
+                    <h3>Psicólogos para adultos en Valladolid</h3>
+                    <p>Terapia en Valladolid / online</p>
+                </div>
+                <div class="servicio">
+                    <h3>Psicólogo infantil y adolescente en Valladolid</h3>
+                    <p>Terapia infanto / juvenil</p>
+                </div>
+                <div class="servicio">
+                    <h3>Terapia familiar y de pareja en Valladolid</h3>
+                    <p>Dificultades familiares o en pareja</p>
+                </div>
+                <div class="servicio">
+                    <h3>Terapia grupal en Valladolid</h3>
+                    <p>Ansiedad, soledad, depresión..</p>
+                </div>
+                <div class="servicio">
+                    <h3>Psicólogo online desde Valladolid</h3>
+                    <p>Descubre los beneficios de la terapia online en InSight Psicología</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('insight_servicios', 'insight_servicios_shortcode');
+
+// Shortcode para el footer
+function insight_footer_shortcode() {
+    ob_start();
+    ?>
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="logo solo.png" alt="InSight Psicología Logo" style="height: 150px; width: auto;">
+            </div>
+            <div class="footer-info">
+                <p><i class="fas fa-map-marker-alt"></i> Calle Atrio de Santiago 7, 1A, Valladolid</p>
+                <p><i class="fas fa-envelope"></i> 
+                  <a style="color:#fff" href="mailto:centropsicologiainsight@gmail.com?subject=Solicito%20informaci%C3%B3n">
+                    centropsicologiainsight@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> 
+                  <a style="color:#fff" href="tel:+34611731123">+34 611 73 11 23</a>
+                </p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.tiktok.com/@insight.psicologa" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://instagram.com/centropsicologiainsight" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/centropsicologiainsight" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/company/centro-psicolog%C3%ADa-insight/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> Copyright – InSight Psicología</p>
+            <div class="footer-links">
+                <a href="#">Aviso legal y Política de privacidad</a>
+                <a href="#">Política de cookies</a>
+            </div>
+            <p class="eu-funding">Esta solución ha sido financiada por la Unión Europea – NextGenerationEU en el marco del Plan de Recuperación, Transformación y Resiliencia</p>
+        </div>
+    </footer>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('insight_footer', 'insight_footer_shortcode');
