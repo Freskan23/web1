@@ -1,613 +1,1595 @@
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios de Psicología - InSight Psicología Valladolid</title>
-    <meta name="description" content="Servicios de psicología en Valladolid: terapia individual, de pareja, familiar, infantil y online. Psicólogos especializados en ansiedad, depresión y más.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Martel:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        :root{
-            --color-accent:#D09193;
-            --pale-pink: #FADADD; /* Pale pink for buttons */
-            --dark-grey-text: #333333; /* Dark grey for paragraph text */
-        }
-        .floating-buttons{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:15px;z-index:1000}
-        .floating-btn{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,.2);cursor:pointer;transition:transform .3s}
-        .floating-btn:hover{transform:scale(1.1)}
-        .menu-btn{background:var(--color-accent);color:#fff;font-size:24px}
-        .phone-btn{background:#007bff;color:#fff;font-size:26px}
-        .whatsapp-btn{background:#25D366;color:#fff;font-size:30px}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InSight Psicología - Psicólogos en Valladolid | Terapia Psicológica</title>
+<meta name="description" content="Centro de psicología en Valladolid. Psicólogos especializados en ansiedad, depresión, terapia de pareja y familiar. Sesiones presenciales y online.">
+<meta name="keywords" content="psicólogo Valladolid, terapia psicológica, ansiedad, depresión, terapia de pareja, psicología online">
+<meta name="author" content="InSight Psicología">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.centropsicologiainsight.com/">
 
-        /* Simple mobile menu - remove all the complex overrides */
-        .simple-mobile-menu{position:fixed;top:0;left:0;width:100vw;height:100vh;background:linear-gradient(145deg,#ffffff 0%,#f8fafd 100%);transform:translateY(-100%);transition:transform .4s cubic-bezier(.4,0,.2,1);z-index:2000;display:flex;flex-direction:column;overflow-y:auto}
-        .simple-mobile-menu.active{transform:translateY(0)}
-        .simple-menu-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:2px solid var(--color-terciario);background:var(--color-terciario)}
-        .simple-menu-logo{height:50px;width:auto}
-        .simple-menu-close{width:44px;height:44px;border-radius:50%;background:var(--color-accent);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;transition:all .3s ease}
-        .simple-menu-close:hover{background:var(--color-primario);transform:scale(1.1)}
-        .simple-menu-nav{flex:1;padding:30px 0;display:flex;flex-direction:column}
-        .simple-menu-link{display:flex;align-items:center;gap:20px;padding:20px 30px;color:var(--color-texto);text-decoration:none;font-size:18px;font-weight:500;border-bottom:1px solid rgba(183,203,191,.2);transition:all .3s ease}
-        .simple-menu-link:hover{background:var(--color-terciario);color:var(--color-accent);padding-left:40px}
-        .simple-menu-link i{font-size:20px;color:var(--color-primario);min-width:24px}
-        .simple-menu-contact{padding:25px 30px 35px;background:linear-gradient(145deg,var(--color-terciario) 0%,rgba(199,226,217,.5) 100%);text-align:center}
-        .simple-menu-contact p{margin-bottom:20px;color:var(--color-texto);font-weight:600;font-size:16px}
-        .simple-menu-actions{display:flex;gap:15px;justify-content:center}
-        .simple-action-btn{display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:25px;text-decoration:none;color:white;font-weight:600;font-size:16px;transition:all .3s ease;flex:1;justify-content:center;max-width:140px}
-        .simple-action-btn.phone{background:linear-gradient(45deg,var(--color-primario) 0%,var(--color-accent) 100%)}
-        .simple-action-btn.whatsapp{background:linear-gradient(45deg,#25D366 0%,#128C7E 100%)}
-        .simple-action-btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.centropsicologiainsight.com/">
+<meta property="og:title" content="InSight Psicología - Psicólogos en Valladolid">
+<meta property="og:description" content="Centro de psicología en Valladolid. Psicólogos especializados en ansiedad, depresión, terapia de pareja y familiar.">
+<meta property="og:image" content="https://www.centropsicologiainsight.com/logo solo.png">
 
-        /* Modal styles - simplified */
-        .modal{position:fixed;top:0;left:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.5);z-index:1002; padding: 20px; box-sizing: border-box;}
-        .modal-content{background:#fff;border-radius:15px;width:90%;max-width:600px;padding:30px;position:relative;animation:fade .4s; max-height: 90vh; overflow-y: auto;}
-        @keyframes fade{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
-        .modal-close{position:absolute;top:15px;right:15px;font-size:24px;cursor:pointer}
-        .modal-option{display:flex;align-items:center;gap:15px;padding:15px;border-radius:10px;margin-bottom:15px;text-decoration:none;color:#000;background:#f5f5f5;transition:transform .3s}
-        .modal-option:hover{transform:translateY(-3px);box-shadow:0 4px 10px rgba(0,0,0,.1)}
-        .modal-option.whatsapp{background:#dcf8c6}
-        .modal-option.phone{background:#e4edff}
-        .modal-option i{font-size:24px}
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://www.centropsicologiainsight.com/">
+<meta property="twitter:title" content="InSight Psicología - Psicólogos en Valladolid">
+<meta property="twitter:description" content="Centro de psicología en Valladolid. Psicólogos especializados en ansiedad, depresión, terapia de pareja y familiar.">
+<meta property="twitter:image" content="https://www.centropsicologiainsight.com/logo solo.png">
 
-        /* Button for "Más Información" */
-        .btn-outline {
-            background-color: transparent;
-            color: var(--color-accent);
-            border: 2px solid var(--color-accent);
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 600;
-            padding: 10px 28px;
-            border-radius: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: block; /* Make it block to control margin */
-            margin: 20px auto 10px; /* Center it and add some margin */
-            max-width: 200px; /* Control width */
-        }
+<!-- Local Business Schema -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"@id": "https://www.centropsicologiainsight.com/#organization",
+"name": "InSight Psicología",
+"description": "Centro de psicología en Valladolid especializado en terapia individual, familiar y de pareja",
+"url": "https://www.centropsicologiainsight.com/",
+"logo": "https://www.centropsicologiainsight.com/logo solo.png",
+"image": "https://www.centropsicologiainsight.com/DSC6307-logo-nci.jpg",
+"telephone": "+34611731123",
+"email": "hola@centropsicologiainsight.com",
+"address": {
+"@type": "PostalAddress",
+"streetAddress": "Calle Atrio de Santiago 7, 1A",
+"addressLocality": "Valladolid",
+"addressRegion": "Castilla y León",
+"postalCode": "47001",
+"addressCountry": "ES"
+},
+"geo": {
+"@type": "GeoCoordinates",
+"latitude": "41.6505432",
+"longitude": "-4.7294302"
+},
+"openingHours": "Mo-Fr 09:00-20:00",
+"priceRange": "€€",
+"aggregateRating": {
+"@type": "AggregateRating",
+"ratingValue": "5",
+"reviewCount": "23"
+},
+"sameAs": [
+"https://instagram.com/centropsicologiainsight",
+"https://www.facebook.com/centropsicologiainsight",
+"https://www.linkedin.com/company/centro-psicolog%C3%ADa-insight/",
+"https://www.tiktok.com/@insight.psicologa"
+]
+}
+</script>
 
-        .btn-outline:hover {
-            background-color: var(--color-accent);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .sub-servicio-contenido .cta-button-universal,
-        .servicio-texto-columna .cta-button-universal {
-            margin-top: 10px; /* Adjust spacing if both buttons are present */
-        }
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "¿Dónde está ubicado InSight Psicología en Valladolid?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "InSight Psicología está ubicado en Calle Atrio de Santiago 7, 1A, Valladolid. También ofrecemos terapia online."
+}
+},
+{
+"@type": "Question",
+"name": "¿Qué servicios de psicología ofrecen?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Ofrecemos terapia individual para adultos, terapia infantil y adolescente, terapia de pareja y familiar, terapia grupal y psicología online."
+}
+},
+{
+"@type": "Question",
+"name": "¿Cómo puedo reservar una cita?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Puedes reservar una cita llamando al +34 611 73 11 23, por WhatsApp o enviando un email a hola@centropsicologiainsight.com"
+}
+}
+]
+}
+</script>
+
+<!-- MedicalBusiness Schema -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org/",
+"@type": "MedicalBusiness",
+"additionalType": [
+"https://www.wikidata.org/wiki/Q183257",
+"https://www.wikidata.org/wiki/Q18555031"
+],
+"name": "InSight Psicología",
+"alternateName": [
+"Centro Psicología Insight",
+"InSight Psicólogos Valladolid y Psicoterapia online"
+],
+"description": "Centro de psicología en Valladolid especializado en terapia individual, familiar, de pareja y grupal, con enfoque holístico e integral para el bienestar emocional.",
+"slogan": "El primer paso para SANAR es permitirte SENTIR",
+"url": "https://www.centropsicologiainsight.com/",
+"logo": {
+"@type": "ImageObject",
+"url": "https://www.centropsicologiainsight.com/wp-content/uploads/2023/09/logo-insight.png"
+},
+"image": {
+"@type": "ImageObject",
+"url": "https://www.centropsicologiainsight.com/wp-content/uploads/2023/09/psicologo-valladolid.jpg"
+},
+"address": {
+"@type": "PostalAddress",
+"streetAddress": "Calle Atrio de Santiago 7, 1A",
+"addressLocality": "Valladolid",
+"addressRegion": "Castilla y León",
+"addressCountry": "ES"
+},
+"geo": {
+"@type": "GeoCoordinates",
+"latitude": "41.650543",
+"longitude": "-4.729430"
+},
+"telephone": "+34611731123",
+"email": "hola@centropsicologiainsight.com",
+"openingHours": "Mo,Tu,We,Th,Fr 09:00-20:00",
+"priceRange": "€€",
+"currenciesAccepted": "EUR",
+"paymentAccepted": "Cash, Credit Card, Bank Transfer",
+"identifier": [
+{
+"@type": "PropertyValue",
+"propertyID": "googlePlaceID",
+"value": "ChIJTR7Tb6xtRw0RPUV9_3FHVUY"
+},
+{
+"@type": "PropertyValue",
+"propertyID": "googleKnowledgeGraphID",
+"value": "/g/11t_skg076"
+},
+{
+"@type": "PropertyValue",
+"propertyID": "googleCID",
+"value": "5068035510618637629"
+},
+{
+"@type": "PropertyValue",
+"propertyID": "googleBusinessProfileID",
+"value": "9307999427735945261"
+}
+],
+"hasMap": "https://www.google.com/maps/search/?api=1&query=Google&query_place_id=ChIJTR7Tb6xtRw0RPUV9_3FHVUY",
+"medicalSpecialty": [
+{
+"@type": "MedicalSpecialty",
+"name": "Psicología",
+"sameAs": "https://www.wikidata.org/wiki/Q9418"
+},
+{
+"@type": "MedicalSpecialty",
+"name": "Psicoterapia",
+"sameAs": "https://www.wikidata.org/wiki/Q183257"
+},
+{
+"@type": "MedicalSpecialty",
+"name": "Salud Mental"
+}
+],
+"sameAs": [
+"https://www.facebook.com/centroinsightpsicologia/",
+"https://instagram.com/centropsicologiainsight",
+"https://www.doctoralia.es/clinicas/insight-psicologia",
+"https://www.mundopsicologos.com/centros/m-belen-hernandez"
+],
+"founder": {
+"@type": "Person",
+"name": "M. Belén Hernández",
+"alternateName": ["M. Belén Hernández Lorenzo", "María Belén Hernández"],
+"url": "https://www.centropsicologiainsight.com/nosotras/m.-bel%C3%A9n-hern%C3%A1ndez",
+"jobTitle": {
+"@type": "DefinedTerm",
+"name": "Directora y Psicóloga Sanitaria",
+"sameAs": "https://www.wikidata.org/wiki/Q1900167"
+},
+"description": "Psicóloga General Sanitaria con amplia experiencia en terapia individual, de pareja y familiar. Especializada en trastornos de ansiedad, depresión y trauma. Trabaja desde una perspectiva integrativa, derivada de su formación como psicoterapeuta sistémica, psicodrama, psicología sanitaria, arteterapia, EMDR y focusing.",
+"alumniOf": [
+{
+"@type": "CollegeOrUniversity",
+"name": "Universidad de Sevilla"
+},
+{
+"@type": "CollegeOrUniversity",
+"name": "Universidad de Santiago de Compostela"
+}
+],
+"worksFor": {
+"@type": "MedicalBusiness",
+"name": "InSight Psicología",
+"url": "https://www.centropsicologiainsight.com/"
+},
+"knowsAbout": [
+"Psicoterapia Sistémica",
+"Psicodrama",
+"Arteterapia",
+"EMDR",
+"Focusing",
+"Educación Especial",
+"Trastornos de ansiedad",
+"Depresión",
+"Trauma",
+"Apego",
+"Duelo"
+],
+"hasCredential": [
+{
+"@type": "EducationalOccupationalCredential",
+"credentialCategory": "degree",
+"name": "Maestra de educación especial"
+},
+{
+"@type": "EducationalOccupationalCredential",
+"credentialCategory": "professional",
+"name": "Número de colegiada CL04925"
+}
+],
+"workLocation": [
+{
+"@type": "City",
+"name": "Valladolid",
+"sameAs": "https://www.wikidata.org/wiki/Q8356"
+},
+"Online"
+],
+"sameAs": [
+"https://www.mundopsicologos.com/centros/m-belen-hernandez"
+],
+"citation": [
+{
+"@type": "Article",
+"headline": "Musicoterapia: beneficios en el tratamiento psicológico",
+"author": {"@type": "Person", "name": "M. Belén Hernández Lorenzo"},
+"publisher": {"@type": "Organization", "name": "PsicoPortal"},
+"url": "https://psicoportal.com/psicoterapia/musicoterapia/",
+"mainEntityOfPage": "https://psicoportal.com/psicoterapia/musicoterapia/"
+},
+{
+"@type": "Article",
+"headline": "Teoría de Argyris: el comportamiento organizacional",
+"author": {"@type": "Person", "name": "M. Belén Hernández Lorenzo"},
+"publisher": {"@type": "Organization", "name": "PsicoPortal"},
+"url": "https://psicoportal.com/teorias-psicologicas/teoria-de-argyris/",
+"mainEntityOfPage": "https://psicoportal.com/teorias-psicologicas/teoria-de-argyris/"
+}
+]
+},
+"hasOfferCatalog": {
+"@type": "OfferCatalog",
+"name": "Servicios de Psicología",
+"itemListElement": [
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q183257",
+"name": "Terapia Individual",
+"description": "Un espacio confidencial y personalizado, enfocado en tu crecimiento y bienestar emocional.",
+"relevantSpecialty": {
+"@type": "MedicalSpecialty",
+"name": "Psicología Clínica",
+"sameAs": "https://www.wikidata.org/wiki/Q9418"
+},
+"medicineSystem": { "@type" : "MedicineSystem", "name": "Psicoterapia" }
+},
+"priceSpecification": {
+"@type": "PriceSpecification",
+"price": "60",
+"priceCurrency": "EUR"
+},
+"availability": "https://schema.org/InStock",
+"url": "https://www.centropsicologiainsight.com/servicios/"
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q183257",
+"name": "Terapia de Pareja o Familiar",
+"description": "Herramientas y guía para mejorar la comunicación y fortalecer vuestros vínculos.",
+"relevantSpecialty": {
+"@type": "MedicalSpecialty",
+"name": "Terapia Familiar"
+},
+"medicineSystem": { "@type" : "MedicineSystem", "name": "Psicoterapia" }
+},
+"priceSpecification": {
+"@type": "PriceSpecification",
+"price": "70",
+"priceCurrency": "EUR"
+},
+"availability": "https://schema.org/InStock",
+"url": "https://www.centropsicologiainsight.com/servicios/"
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q183257",
+"name": "Terapia Grupal",
+"description": "Un espacio de apoyo y aprendizaje compartido.",
+"relevantSpecialty": {
+"@type": "MedicalSpecialty",
+"name": "Psicología Clínica",
+"sameAs": "https://www.wikidata.org/wiki/Q9418"
+},
+"medicineSystem": { "@type" : "MedicineSystem", "name": "Psicoterapia" }
+},
+"priceSpecification": {
+"@type": "PriceSpecification",
+"minPrice": "25",
+"maxPrice": "35",
+"priceCurrency": "EUR"
+},
+"availability": "https://schema.org/InStock",
+"url": "https://www.centropsicologiainsight.com/servicios/"
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q183257",
+"name": "Psicología Infantil y Juvenil",
+"description": "Apoyo especializado para niños y adolescentes en cada etapa de su desarrollo.",
+"relevantSpecialty": {
+"@type": "MedicalSpecialty",
+"name": "Psicología Infantil"
+},
+"medicineSystem": { "@type" : "MedicineSystem", "name": "Psicoterapia" }
+},
+"availability": "https://schema.org/InStock",
+"url": "https://www.centropsicologiainsight.com/servicios/"
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q3555418",
+"name": "Terapia Online",
+"description": "Sesiones de terapia a distancia con la misma calidad y atención personalizada.",
+"relevantSpecialty": {
+"@type": "MedicalSpecialty",
+"name": "Psicología Clínica",
+"sameAs": "https://www.wikidata.org/wiki/Q9418"
+},
+"medicineSystem": { "@type" : "MedicineSystem", "name": "Psicoterapia" }
+},
+"availability": "https://schema.org/InStock",
+"url": "https://www.centropsicologiainsight.com/servicios/"
+}
+]
+},
+"employee": [
+{
+"@type": "Person",
+"name": "M. Belén Hernández",
+"url": "https://www.centropsicologiainsight.com/nosotras/m.-bel%C3%A9n-hern%C3%A1ndez",
+"alternateName": ["M. Belén Hernández Lorenzo", "María Belén Hernández"],
+"jobTitle": {
+"@type": "DefinedTerm",
+"name": "Directora y Psicóloga Sanitaria",
+"sameAs": "https://www.wikidata.org/wiki/Q1900167"
+},
+"description": "Psicóloga General Sanitaria con amplia experiencia en terapia individual, de pareja y familiar. Especializada en trastornos de ansiedad, depresión y trauma.",
+"knowsAbout": [
+"Psicoterapia Sistémica", "Psicodrama", "Arteterapia", "EMDR", "Focusing", "Educación Especial", "Trastornos de ansiedad", "Depresión", "Trauma", "Apego", "Duelo"
+],
+"sameAs": [
+"https://www.mundopsicologos.com/centros/m-belen-hernandez"
+]
+},
+{
+"@type": "Person",
+"name": "Agustina Vela",
+"jobTitle": {
+"@type": "DefinedTerm",
+"name": "Psicóloga Sanitaria",
+"sameAs": "https://www.wikidata.org/wiki/Q1900167"
+},
+"description": "Especializada en ansiedad, depresión, dependencia emocional y duelo. Su enfoque se centra en crear un espacio seguro para el crecimiento personal.",
+"knowsAbout": [
+"Ansiedad", "Depresión", "Dependencia emocional", "Duelo", "Crecimiento personal"
+]
+},
+{
+"@type": "Person",
+"name": "Julia Etayo",
+"jobTitle": {
+"@type": "DefinedTerm",
+"name": "Psicóloga Sanitaria",
+"sameAs": "https://www.wikidata.org/wiki/Q1900167"
+},
+"description": "Especializada en población infanto-juvenil y psicoterapeuta Gestalt. Su enfoque humanista se centra en la escucha y relación con las emociones.",
+"knowsAbout": [
+"Psicología infantil", "Psicología juvenil", "Terapia Gestalt", "Enfoque humanista", "Gestión emocional"
+]
+},
+{
+"@type": "Person",
+"name": "Abraham Álvarez",
+"jobTitle": {
+"@type": "DefinedTerm",
+"name": "Psicólogo Sanitario",
+"sameAs": "https://www.wikidata.org/wiki/Q1900167"
+},
+"description": "Más de 15 años de experiencia en terapia. Especialista en Terapias Contextuales, ACT y Mindfulness. Experto en situaciones complejas.",
+"knowsAbout": [
+"Terapias Contextuales", "Terapia de Aceptación y Compromiso (ACT)", "Mindfulness", "Situaciones complejas"
+]
+},
+{
+"@type": "Person",
+"name": "Ángela Sastre",
+"jobTitle": {
+"@type": "DefinedTerm",
+"name": "Psicóloga Sanitaria",
+"sameAs": "https://www.wikidata.org/wiki/Q1900167"
+},
+"description": "Especialista en duelo, trauma y EMDR. Su enfoque integrador se adapta a cada persona para conseguir el bienestar y la salud mental.",
+"knowsAbout": [
+"Duelo", "Trauma", "EMDR", "Enfoque integrador", "Salud mental"
+]
+}
+],
+"review": [
+{
+"@type": "Review",
+"author": {
+"@type": "Person",
+"name": "Sandra"
+},
+"reviewRating": {
+"@type": "Rating",
+"ratingValue": "5",
+"bestRating": "5"
+},
+"datePublished": "2024-01-15",
+"reviewBody": "Llevo varios meses trabajando junto a Belén y mi experiencia no ha podido ser mejor desde el primer momento. Me he sentido acompañada y arropada en cada sesión; gracias a los deberes que me manda, las sesiones son súper productivas y cada día aprendo cosas nuevas que aplico en mi día a día. Estoy muy agradecida y tranquila sabiendo que voy de la mano de una gran profesional. ¡Qué orgullosa y feliz me siento al mirar atrás y ver cuánto he mejorado y evolucionado!"
+},
+{
+"@type": "Review",
+"author": {
+"@type": "Person",
+"name": "Ángel Padilla Gutierrez"
+},
+"reviewRating": {
+"@type": "Rating",
+"ratingValue": "5",
+"bestRating": "5"
+},
+"datePublished": "2024-02-20",
+"reviewBody": "Me hicieron sentirme a gusto desde la primera sesión. Enseguida me dieron herramientas específicas para mis necesidades que me han servido muy bien. Una vez que pude manejar el día a día, indagamos más, siempre con trato amable y cercano. Buscan la manera adecuada de explicarte las cosas, lo cual se agradece mucho. Las recomendaría al 100 %."
+},
+{
+"@type": "Review",
+"author": {
+"@type": "Person",
+"name": "Daniel Rodríguez Valles"
+},
+"reviewRating": {
+"@type": "Rating",
+"ratingValue": "5",
+"bestRating": "5"
+},
+"datePublished": "2024-03-10",
+"reviewBody": "Una de las mejores decisiones de mi vida. Belén me ha hecho conocerme mucho más, interpretar contextos de mi entorno y entender aspectos donde reinaba la incomprensión. Solo puedo lanzar palabras de agradecimiento por lo mucho que ha significado para mí. ¡Un placer!"
+},
+{
+"@type": "Review",
+"author": {
+"@type": "Person",
+"name": "Noelia Carrasco Cuesta"
+},
+"reviewRating": {
+"@type": "Rating",
+"ratingValue": "5",
+"bestRating": "5"
+},
+"datePublished": "2024-04-05",
+"reviewBody": "Mi experiencia con Nuria es maravillosa. Desde la primera sesión me sentí en confianza total. Cada vez controlo más mi ansiedad gracias a sus consejos y pautas; me estoy conociendo mucho más y gestionando mejor mis emociones. Estoy volviendo a ser yo; no puedo agradecer suficiente todo lo que me está ayudando."
+}
+],
+"aggregateRating": {
+"@type": "AggregateRating",
+"ratingValue": "5",
+"reviewCount": "10",
+"bestRating": "5",
+"worstRating": "1"
+},
+"areaServed": {
+"@type": "City",
+"name": "Valladolid",
+"sameAs": "https://www.wikidata.org/wiki/Q8356"
+},
+"availableService": [
+{
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q183257",
+"name": "Terapia para Ansiedad",
+"description": "Tratamiento especializado para trastornos de ansiedad y estrés."
+},
+{
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q183257",
+"name": "Terapia para Depresión",
+"description": "Tratamiento para estados depresivos y trastornos del estado de ánimo."
+},
+{
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q183257",
+"name": "Terapia EMDR",
+"description": "Terapia de desensibilización y reprocesamiento por movimientos oculares para trauma."
+},
+{
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q183257",
+"name": "Terapia para Duelo",
+"description": "Acompañamiento en procesos de duelo y pérdida."
+},
+{
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q183257",
+"name": "Terapia Infantil y Juvenil",
+"description": "Atención especializada para niños y adolescentes."
+},
+{
+"@type": "MedicalTherapy",
+"additionalType": "https://www.wikidata.org/wiki/Q183257",
+"name": "Terapia para Dependencia Emocional",
+"description": "Tratamiento para relaciones dependientes y apego inseguro."
+}
+],
+"knowsAbout": [
+{
+"@type": "DefinedTerm",
+"name": "Psicología Clínica",
+"sameAs": "https://www.wikidata.org/wiki/Q9418"
+},
+"Terapia Cognitivo-Conductual", "EMDR", "Terapia Sistémica", "Trauma", "Apego", "Ansiedad", "Duelo", "Psicodrama", "Arteterapia", "Focusing", "Terapia Gestalt", "Terapias Contextuales", "ACT", "Mindfulness", "Psicología Infantil y Juvenil", "Dependencia Emocional"
+],
+"memberOf": [
+{
+"@type": "Organization",
+"name": "Colegio Oficial de Psicólogos de Castilla y León"
+}
+],
+"potentialAction": {
+"@type": "ReserveAction",
+"target": {
+"@type": "EntryPoint",
+"urlTemplate": "https://www.centropsicologiainsight.com/contacto/",
+"inLanguage": "es",
+"actionPlatform": [
+"http://schema.org/DesktopWebPlatform",
+"http://schema.org/MobileWebPlatform"
+]
+},
+"result": {
+"@type": "Reservation",
+"name": "Reserva de cita"
+}
+},
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "https://www.centropsicologiainsight.com/"
+},
+"citation": [
+{
+"@type": "WebPage",
+"name": "Así recordamos la pandemia cinco años después",
+"publisher": {"@type": "Organization", "name": "CYLTV"},
+"url": "https://www.cyltv.es/Noticia/F7D629A9-D4E9-94EF-76A53428AC15112A/Asi-recordamos-la-pandemia-cinco-anos-despues",
+"mentions": [{"@type": "MedicalBusiness", "name": "InSight Psicología"}, {"@type": "Person", "name": "María Belén Hernández"}]
+},
+{
+"@type": "WebPage",
+"name": "6 frases que ninguna abuela o abuelo debería decirles a sus niet@s",
+"publisher": {"@type": "Organization", "name": "Mamá Psicóloga Infantil"},
+"url": "https://www.mamapsicologainfantil.com/6-frases-que-ninguna-abuela-o-abuelo/",
+"mentions": {"@type": "MedicalBusiness", "name": "CentroPsicologiaInsight.com"}
+},
+{
+"@type": "WebPage",
+"name": "¿Qué hacer cuando un niño de 3 años no obedece?",
+"publisher": {"@type": "Organization", "name": "Mamá Psicóloga Infantil"},
+"url": "https://www.mamapsicologainfantil.com/que-hacer-cuando-un-nino-de-3-anos-no/",
+"mentions": {"@type": "MedicalBusiness", "name": "Psicologia Insight"}
+},
+{
+"@type": "WebPage",
+"name": "Cómo superar una ruptura estando enamorada con la ayuda de un psicólogo",
+"publisher": {"@type": "Organization", "name": "Psicología Online"},
+"url": "https://www.psicologia-online.com/como-superar-una-ruptura-estando-enamorada-con-la-ayuda-de-un-psicologo-7316.html",
+"mentions": {"@type": "MedicalBusiness", "name": "Psicología inSight"}
+}
+]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Martel:wght@400;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+:root{--color-accent:#D09193}
+.floating-buttons{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:15px;z-index:1000}
+.floating-btn{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,.2);cursor:pointer;transition:transform .3s}
+.floating-btn:hover{transform:scale(1.1)}
+.menu-btn{background:var(--color-accent);color:#fff;font-size:24px}
+.phone-btn{background:#007bff;color:#fff;font-size:26px}
+.whatsapp-btn{background:#25D366;color:#fff;font-size:30px}
+
+/* Simple mobile menu - remove all the complex overrides */
+.simple-mobile-menu{position:fixed;top:0;left:0;width:100vw;height:100vh;background:linear-gradient(145deg,#ffffff 0%,#f8fafd 100%);transform:translateY(-100%);transition:transform .4s cubic-bezier(.4,0,.2,1);z-index:2000;display:flex;flex-direction:column;overflow-y:auto}
+.simple-mobile-menu.active{transform:translateY(0)}
+.simple-menu-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:2px solid var(--color-terciario);background:var(--color-terciario)}
+.simple-menu-logo{height:50px;width:auto}
+.simple-menu-close{width:44px;height:44px;border-radius:50%;background:var(--color-accent);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;transition:all .3s ease}
+.simple-menu-close:hover{background:var(--color-primario);transform:scale(1.1)}
+.simple-menu-nav{flex:1;padding:30px 0;display:flex;flex-direction:column}
+.simple-menu-link{display:flex;align-items:center;gap:20px;padding:20px 30px;color:var(--color-texto);text-decoration:none;font-size:18px;font-weight:500;border-bottom:1px solid rgba(183,203,191,.2);transition:all .3s ease}
+.simple-menu-link:hover{background:var(--color-terciario);color:var(--color-accent);padding-left:40px}
+.simple-menu-link i{font-size:20px;color:var(--color-primario);min-width:24px}
+.simple-menu-contact{padding:25px 30px 35px;background:linear-gradient(145deg,var(--color-terciario) 0%,rgba(199,226,217,.5) 100%);text-align:center}
+.simple-menu-contact p{margin-bottom:20px;color:var(--color-texto);font-weight:600;font-size:16px}
+.simple-menu-actions{display:flex;gap:15px;justify-content:center}
+.simple-action-btn{display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:25px;text-decoration:none;color:white;font-weight:600;font-size:16px;transition:all .3s ease;flex:1;justify-content:center;max-width:140px}
+.simple-action-btn.phone{background:linear-gradient(45deg,var(--color-primario) 0%,var(--color-accent) 100%)}
+.simple-action-btn.whatsapp{background:linear-gradient(45deg,#25D366 0%,#128C7E 100%)}
+.simple-action-btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+
+/* Modal styles - simplified */
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.5);z-index:1002}
+.modal-content{background:#fff;border-radius:15px;width:90%;max-width:400px;padding:30px;position:relative;animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:15px;right:15px;font-size:24px;cursor:pointer}
+.modal-option{display:flex;align-items:center;gap:15px;padding:15px;border-radius:10px;margin-bottom:15px;text-decoration:none;color:#000;background:#f5f5f5;transition:transform .3s}
+.modal-option:hover{transform:translateY(-3px);box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.modal-option.whatsapp{background:#dcf8c6}
+.modal-option.phone{background:#e4edff}
+.modal-option i{font-size:24px}
+
+/* Remove all complex responsive overrides and keep simple ones */
+@media (max-width: 768px) {
+.floating-btn {width: 52px;height: 52px;font-size: 22px;}
+.floating-buttons {right: 15px;bottom: 15px;gap: 12px;}
+}
+
+@media (max-width: 480px) {
+.floating-btn {width: 48px;height: 48px;font-size: 20px;}
+.floating-buttons {right: 12px;bottom: 12px;gap: 10px;}
+.simple-menu-header {padding: 16px 20px;}
+.simple-menu-logo {height: 40px;}
+.simple-menu-close {width: 40px;height: 40px;font-size: 18px;}
+.simple-menu-link {padding: 18px 25px;font-size: 17px;}
+.simple-menu-contact {padding: 20px 25px 30px;}
+.simple-action-btn {font-size: 15px;padding: 10px 16px;}
+}
+
+/* Hide on desktop */
+@media (min-width: 769px) {
+.floating-buttons {display: none !important;}
+.simple-mobile-menu {display: none !important;}
+}
+</style>
 
 
-        /* Remove all complex responsive overrides and keep simple ones */
-        @media (max-width: 768px) {
-          .floating-btn {width: 52px;height: 52px;font-size: 22px;}
-          .floating-buttons {right: 15px;bottom: 15px;gap: 12px;}
-          .modal-content { max-width: 95%; padding: 20px; }
-
-        }
-
-        @media (max-width: 480px) {
-          .floating-btn {width: 48px;height: 48px;font-size: 20px;}
-          .floating-buttons {right: 12px;bottom: 12px;gap: 10px;}
-          .simple-menu-header {padding: 16px 20px;}
-          .simple-menu-logo {height: 40px;}
-          .simple-menu-close {width: 40px;height: 40px;font-size: 18px;}
-          .simple-menu-link {padding: 18px 25px;font-size: 17px;}
-          .simple-menu-contact {padding: 20px 25px 30px;}
-          .simple-action-btn {font-size: 15px;padding: 10px 16px;}
-           #serviceInfoModalTitle, #modal-title { font-size: 1.5rem; } /* Adjust modal title size for small screens */
-        }
-
-        /* Hide on desktop */
-        @media (min-width: 769px) {
-          .floating-buttons {display: none !important;}
-          .simple-mobile-menu {display: none !important;}
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="top-banner">
-            <p>
-                Agenda tu cita
-                <span class="cta-icons">
-                    <a href="tel:+34611731123" class="cta-icon-link" title="Llamar"><i class="fas fa-phone"></i></a>
-                    <a href="/cdn-cgi/l/email-protection#543c3b38351437313a20263b24273d373b383b333d353d3a273d333c207a373b39" class="cta-icon-link" title="Enviar email">
-   <i class="fas fa-envelope"></i>
+<header role="banner">
+<div class="top-banner">
+<p>
+Agenda tu cita
+<span class="cta-icons">
+<a href="tel:+34611731123" class="cta-icon-link" title="Llamar"><i class="fas fa-phone"></i></a>
+<a href="/cdn-cgi/l/email-protection#a7cfc8cbc6e7c4c2c9d3d5c8d7d4cec4c8cbc8c0cec6cec9d4cec0cfd389c4c8ca" class="cta-icon-link" title="Enviar email"><i class="fas fa-envelope"></i></a>
+<a href="https://wa.me/+34611731123" class="cta-icon-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</span>
+</p>
+</div>
+<div class="main-header">
+<div class="logo">
+<img src="logo solo.png" alt="InSight Psicología Logo">
+</div>
+<nav class="desktop-nav">
+<ul>
+ <li><a href="/servicios/">Servicios / Tarifas</a></li>
+        <li><a href="/terapia/">Sobre la terapia</a></li>
+        <li><a href="/nosotros/">Conócenos</a></li>
+        <li><a href="/contactar-con-psicologo/">Contacto</a></li>
+        <li><a href="/post/">Blog</a></li>
+        <li><a href="/materialdescargable/">Recursos gratis</a></li>
+</ul>
+</nav>
+<div class="whatsapp-button">
+<a href="https://wa.me/+34611731123"><i class="fab fa-whatsapp"></i></a>
+</div>
+<div class="simple-mobile-menu" id="simpleMobileMenu">
+<div class="simple-menu-header">
+<img src="logo solo.png" alt="InSight Psicología" class="simple-menu-logo">
+<div class="simple-menu-close" id="simpleMenuClose">
+<i class="fas fa-times"></i>
+</div>
+</div>
+<nav class="simple-menu-nav">
+<a href="/servicios/" class="simple-menu-link"><i class="fas fa-user-md"></i><span>Servicios / Tarifas</span></a>
+        <a href="/terapia/" class="simple-menu-link"><i class="fas fa-heart"></i><span>Sobre la terapia</span></a>
+        <a href="/nosotros/" class="simple-menu-link"><i class="fas fa-users"></i><span>Conócenos</span></a>
+        <a href="/contactar-con-psicologo/" class="simple-menu-link"><i class="fas fa-envelope"></i><span>Contacto</span></a>
+        <a href="/post/" class="simple-menu-link"><i class="fas fa-blog"></i><span>Blog</span></a>
+        <a href="/materialdescargable/" class="simple-menu-link"><i class="fas fa-download"></i><span>Recursos gratis</span></a>
+</nav>
+<div class="simple-menu-contact">
+<p>¿Necesitas ayuda inmediata?</p>
+<div class="simple-menu-actions">
+<a href="tel:+34611731123" class="simple-action-btn phone">
+<i class="fas fa-phone"></i>
+<span>Llamar</span>
 </a>
+<a href="https://wa.me/+34611731123" class="simple-action-btn whatsapp">
+<i class="fab fa-whatsapp"></i>
+<span>WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</header>
 
-                    <a href="https://wa.me/+34611731123" class="cta-icon-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </span>
-            </p>
-        </div>
-        <div class="main-header">
-            <div class="logo">
-                <a href="https://www.centropsicologiainsight.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="logo solo.png" alt="InSight Psicología Logo">
-                </a>
-            </div>
-            <nav class="desktop-nav">
-                <ul>
-                    <li><a href="https://www.centropsicologiainsight.com/servicios/">Servicios / Tarifas</a></li>
-                    <li><a href="https://www.centropsicologiainsight.com/terapia/">Sobre la terapia</a></li>
-                    <li><a href="https://www.centropsicologiainsight.com/nosotros/">Conócenos</a></li>
-                    <li><a href="https://www.centropsicologiainsight.com/contactar-con-psicologo/">Contacto</a></li>
-                    <li><a href="https://centropsicologiainsight.com/post/">Blog</a></li>
-                    <li><a href="https://centropsicologiainsight.com/post/materialdescargable/">Recursos gratis</a></li>
-                </ul>
-            </nav>
-            <div class="whatsapp-button">
-                <a href="https://wa.me/+34611731123"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <div class="simple-mobile-menu" id="simpleMobileMenu">
-              <div class="simple-menu-header">
-                <a href="https://www.centropsicologiainsight.com/" target="_blank" rel="noopener noreferrer">
-                  <img src="logo solo.png" alt="InSight Psicología" class="simple-menu-logo">
-                </a>
-                <div class="simple-menu-close" id="simpleMenuClose">
-                  <i class="fas fa-times"></i>
-                </div>
-              </div>
-              <nav class="simple-menu-nav">
-                <a href="https://www.centropsicologiainsight.com/servicios/" class="simple-menu-link">
-                  <i class="fas fa-user-md"></i>
-                  <span>Servicios / Tarifas</span>
-                </a>
-                <a href="https://www.centropsicologiainsight.com/terapia/" class="simple-menu-link">
-                  <i class="fas fa-heart"></i>
-                  <span>Sobre la terapia</span>
-                </a>
-                <a href="https://www.centropsicologiainsight.com/nosotros/" class="simple-menu-link">
-                  <i class="fas fa-users"></i>
-                  <span>Conócenos</span>
-                </a>
-                <a href="https://www.centropsicologiainsight.com/contactar-con-psicologo/" class="simple-menu-link">
-                  <i class="fas fa-envelope"></i>
-                  <span>Contacto</span>
-                </a>
-                <a href="https://centropsicologiainsight.com/post/" class="simple-menu-link">
-                  <i class="fas fa-blog"></i>
-                  <span>Blog</span>
-                </a>
-                <a href="https://centropsicologiainsight.com/post/materialdescargable/" class="simple-menu-link">
-                  <i class="fas fa-download"></i>
-                  <span>Recursos gratis</span>
-                </a>
-              </nav>
-              <div class="simple-menu-contact">
-                <p>¿Necesitas ayuda inmediata?</p>
-                <div class="simple-menu-actions">
-                  <a href="tel:+34611731123" class="simple-action-btn phone">
-                    <i class="fas fa-phone"></i>
-                    <span>Llamar</span>
-                  </a>
-                  <a href="https://wa.me/+34611731123" class="simple-action-btn whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-        </div>
-    </header>
+<main role="main">
+<section class="hero">
+<div class="hero-overlay">
+<div class="hero-content">
+<h1>
+Psicólogos en Valladolid: El primer paso para
+<span class="accent" style="color:#D09193;">SANAR</span>
+<br>
+es permitirte <span class="highlight-light">SENTIR</span>
+</h1>
+<button class="btn cta-button-universal">Solicita tu cita</button>
+</div>
+</div>
+</section>
 
-    <section class="sobre-terapia">
-        <div class="container">
-            <div class="sobre-terapia-content">
-                <h1 class="sobre-terapia-title">Sobre la terapia <span class="accent">psicológica</span></h1>
-                
-                <div class="terapia-text-blocks">
-                    <div class="text-block">
-                        <p class="intro-text">La terapia es un lugar de encuentro donde poder compartir todo lo que ronde por tu cabeza sin ser nunca juzgado.</p>
-                    </div>
-                    
-                    <div class="text-block">
-                        <p>Un espacio de seguridad donde se trabajará sobre cómo enfrentarte a tus dificultades según tus propias experiencias y tus necesidades.</p>
-                        <p>El objetivo es que adquieras una manera más sana de gestionar las dificultades que la vida te presente.</p>
-                    </div>
-                    
-                    <div class="text-block highlight-block">
-                        <p>Es un viaje contigo mismo, con tus fantasmas e ilusiones, un viaje necesario y apasionante, aunque también doloroso a veces. Un momento de reencuentro y conocimiento propio que va a ayudarte en el resto de tu vida.</p>
-                    </div>
-                    
-                    <div class="text-block">
-                        <p>Cada ser es único y especial, por lo que cada uno tiene una manera diferente de aprender de sí mismo y de su salud emocional.</p>
-                        <p>Por ello trabajamos desde un estilo integral, donde la metodología dependerá de tus necesidades y tus características personales.</p>
-                    </div>
-                </div>
-                
-                <div class="terapia-cta">
-                    <a href="https://wa.me/+34611731123" class="btn btn-terapia">Solicita información</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="section-spacer"></div>
 
-    <div class="floating-buttons">
-      <div class="floating-btn menu-btn" id="floatingMenuBtn"><i class="fas fa-bars"></i></div>
-      <a href="tel:+34611731123" class="floating-btn phone-btn" aria-label="Llamar a un psicólogo">
-        <i class="fas fa-phone-alt"></i>
-      </a>
-      <div class="floating-btn whatsapp-btn" id="whatsappBtn" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </div>
-    </div>
+<section class="intro">
+<div class="container">
+<h2 class="dual-title">PSICÓLOGOS ESPECIALIZADOS EN <span class="accent">VALLADOLID</span></h2>
+<p>A lo largo de nuestra vida se nos presentan dificultades que nos impiden seguir adelante con nuestros objetivos. Muchos de ellos somos capaces de solventarlos por nosotros mismos, pero a veces sentimos que nos sobrepasan y que escapan a nuestro control.</p>
+<p>Las sesiones de <strong>Terapia individual</strong> con nuestras psicólogas en Valladolid ayudan a los pacientes a desarrollar una actitud positiva hacia las situaciones más difíciles de la vida.</p>
+</div>
+</section>
 
-    <div class="modal" id="whatsappModal">
-      <div class="modal-content">
-        <div class="modal-close" id="modalClose"><i class="fas fa-times"></i></div>
-        <h3 style="text-align:center;margin-bottom:20px">¿Cómo prefieres contactar con un psicólogo?</h3>
-        <a href="https://wa.me/+34611731123" class="modal-option whatsapp">
-          <i class="fab fa-whatsapp"></i><span>Mensaje WhatsApp</span>
-        </a>
-        <a href="tel:+34611731123" class="modal-option phone">
-          <i class="fas fa-phone-alt"></i><span>Llamada telefónica</span>
-        </a>
-        <a <a href="/cdn-cgi/l/email-protection#cca4a3a0ad8cafa9a2b8bea3bcbfa5afa3a0a3aba5ada5a2bfa5aba4b8e2afa3a1" class="modal-option email"><i class="fas fa-envelope"></i><span>Enviar email</span></a>
-      </div>
-    </div>
+<div class="section-spacer"></div>
 
-    <div id="area-modal" class="modal" style="display:none; z-index:20000;" data-ready="true">
-      <div class="modal-content">
-        <span class="close-modal" style="font-size:32px;position:absolute;top:18px;right:28px;cursor:pointer;">&times;</span>
-        <h3 id="modal-title" style="margin-bottom:20px;text-align:center;"></h3>
-        <div id="modal-description" style="margin-bottom:25px;"></div>
-        <div class="modal-cta">
-          <a class="cta-button phone" href="tel:+34611731123"><i class="fas fa-phone-alt"></i> Llamar</a>
-          <a class="cta-button whatsapp" href="https://wa.me/+34611731123"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-          <a class="cta-button email" href="/cdn-cgi/l/email-protection#620a0d0e032201070c16100d12110b010d0e0d050b030b0c110b050a164c010d0f"><i class="fas fa-envelope"></i> Email</a>
-        </div>
-      </div>
-    </div>
+<section class="razones-insight">
+<div class="container">
+<h2 class="dual-title">🧠 5 razones para elegir <span class="brand-insight"><span class="in">In</span><span class="sight">Sight</span></span> <span class="accent">Psicología</span></h2>
+<p class="subtitle">Entiendo que buscar un psicólogo es un paso importante y a menudo lleno de dudas. En Valladolid, tienes muchas opciones, pero quiero compartir contigo por qué considero que mi enfoque puede ser el más adecuado para ti:</p>
 
-    <!-- Service Info Modal -->
-    <div id="serviceInfoModal" class="modal" style="display:none; z-index: 10001;"> 
-        <div class="modal-content">
-            <span class="modal-close" id="serviceInfoModalClose"><i class="fas fa-times"></i></span>
-            <h3 id="serviceInfoModalTitle" style="margin-bottom:20px;text-align:center;"></h3>
-            <div id="serviceInfoModalDescription" style="margin-bottom:25px;">
-                <!-- Content will be injected here by JavaScript -->
-            </div>
-        </div>
-    </div>
+<div class="razones-grid">
+<div class="razon-card">
+<div class="razon-numero"><img src="razon1-formacion.png" alt="Formación continua" style="width: 40px; height: 40px;"></div>
+<div class="razon-content">
+<h3>Porque no dejamos de formarnos</h3>
+<p>Somos psicólogos y psicólogas sanitarios, sí. Pero también seguimos formándonos cada año en diferentes áreas: trauma, apego, EMDR, duelo, ansiedad, terapia sistémica... No porque "tengamos que", sino porque creemos profundamente en lo que hacemos y queremos hacerlo cada vez mejor. Tu proceso se merece lo mejor de nosotros.</p>
+</div>
+</div>
 
-    <!-- Hidden content for modals -->
-    <div id="presencialInfoContent" style="display:none;">
-        <p>Nuestra práctica de psicología en Valladolid se especializa en terapia individual, ofreciendo un espacio seguro y confidencial para explorar emociones, pensamientos y experiencias. Cada persona es única, por lo que nuestro enfoque es altamente personalizado, adaptando técnicas y métodos a tus necesidades específicas.</p>
-        <p>Valoramos la relación terapéutica y trabajamos de manera colaborativa para ayudarte no solo a superar dificultades, sino también a fomentar el crecimiento personal y el bienestar a largo plazo. Nuestro objetivo es que descubras tu potencial y alcances mayor satisfacción y equilibrio en tu vida.</p>
-        <p>La terapia individual te permite comprender mejor tus patrones de pensamiento, emociones y comportamientos, y te proporciona herramientas para tomar decisiones más saludables y positivas. Te ayudamos a manejar el estrés, la ansiedad, la depresión, las relaciones problemáticas y otros desafíos comunes.</p>
-        <p>Si estás listo para avanzar hacia una vida más plena y feliz, contacta con nosotros. Nuestro equipo de psicólogos en Valladolid está aquí para acompañarte en tu viaje hacia el bienestar emocional y la realización personal.</p>
-        <h4>¿En qué áreas podemos ayudarte?</h4>
-        <div class="areas-grid-specific">
-            <div class="area-item">Depresión</div>
-            <div class="area-item">Ansiedad y estrés</div>
-            <div class="area-item">Dependencia emocional</div>
-            <div class="area-item">Autoestima</div>
-            <div class="area-item">Apego y relaciones</div>
-            <div class="area-item">Trauma</div>
-            <div class="area-item">Duelo</div>
-            <div class="area-item">Crisis vitales</div>
-            <div class="area-item">Gestión Emocional</div>
-            <div class="area-item">Trastornos de alimentación</div>
-        </div>
-    </div>
+<div class="razon-card">
+<div class="razon-numero"><img src="razon2-personal.png" alt="Atención personalizada" style="width: 40px; height: 40px;"></div>
+<div class="razon-content">
+<h3>Porque no eres un número, ni un caso más</h3>
+<p>Nos tomamos el tiempo para comprenderte, para escuchar tu historia con atención, sin prisa. Cada persona que llega a consulta es única, y así es como trabajamos: con cuidado, con detalle, con respeto.</p>
+</div>
+</div>
 
-    <div id="onlineInfoContent" style="display:none;">
-        <p>A día de hoy hay miles de estudios que afirman que la terapia online tiene la misma efectividad que la terapia presencial, se genera el mismo vínculo y cercanía necesarias para poder desarrollar la terapia.</p>
-        <p>Consulta sin compromiso nuestros servicios de terapia / psicología online. Nuestro centro de psicología cuenta con los mejores psicólogos y psicólogas para proporcionar el servicio que necesitas.</p>
-        <h4>¿Cómo trabajamos?</h4>
-        <ul>
-            <li>La terapia online es muy similar a la presencial, por lo que las características son las mismas.</li>
-            <li>Las sesiones duran entre 50 - 60 minutos, se realiza una evaluación y se establecen unos objetivos que pretendemos conseguir, los cuales vamos evaluando poco a poco.</li>
-            <li>Se recomienda que las sesiones se hagan de manera semanal al inicio, en lo que adquieres ciertas herramientas y rápidamente podemos alargarlas un poco más.</li>
-            <li>Es importante que el espacio en el que te encuentres sea un espacio sin interrupciones, y de seguridad, donde puedas hablar libremente sin miedo a ser visto o escuchado.</li>
-        </ul>
-        <h4>¿Qué beneficios tiene?</h4>
-        <ul>
-            <li>La comodidad de permanecer en un entorno que resulta familiar.</li>
-            <li>El ahorro de desplazamientos y de costes económicos.</li>
-            <li>Siempre se puede combinar con terapia presencial.</li>
-            <li>El mayor anonimato.</li>
-            <li>El mejor aprovechamiento del tiempo al no tener que ir a una consulta presencial, pudiendo compaginar con más facilidad la terapia psicológica con las actividades diarias.</li>
-        </ul>
-    </div>
+<div class="razon-card">
+<div class="razon-numero"><img src="razon3-equipo.png" alt="Trabajo en equipo" style="width: 40px; height: 40px;"></div>
+<div class="razon-content">
+<h3>Porque no trabajamos solos</h3>
+<p>Aunque la terapia sea individual, no estamos solos. Supervisamos los casos de forma interna, en equipo, y también con una supervisora externa. Eso nos ayuda a ver con más claridad, a evitar sesgos, y sobre todo, a cuidar mejor de ti.</p>
+</div>
+</div>
 
-    <div id="infantilJuvenilInfoContent" style="display:none;">
-        <p>La terapia infanto juvenil implica una intervención en los menores para poder facilitar su bienestar emocional. Los niños muchas veces expresan sus emociones de maneras diferentes a los adultos, y ellos también pueden sentirse frustrados, enfadados o tristes por muchas situaciones. Aprender a regular nuestras emociones es algo vital para un crecimiento sano e íntegro.</p>
-        <p>La adolescencia es un proceso en el que la persona experimenta una serie de cambios que le ayudan a definirse como adulta/o. Esto implica una evolución de comportamientos de tipo más infantiles a intentos de comportamientos más maduros, que normalmente implican probar cosas nuevas, identificarse con el grupo de amigos e ir construyendo su personalidad.</p>
-        <p>Esta parte tan importante de la construcción de su identidad, puede ser muchas veces conflictiva o difícil, porque implica muchos cambios de humor, intentos por pertenecer a su grupo de iguales (amigos) pero sin perder a su familia. Han de enfrentarse a situaciones totalmente nuevas sin muchas herramientas ni conocimiento para hacerlo.</p>
-        <p>Para ellos es una etapa complicada, y es normal que a ti, como madre o padre, te preocupen algunos de estos cambios, el rumbo que van a tomar en el futuro y qué puedes hacer tú para acompañar a tu hijo en esta etapa.</p>
-        <p>Consulta sin compromiso nuestros servicios de terapia para niños o para adolescentes en Valladolid. Nuestro centro de psicología cuenta con los mejores psicólogos y psicólogas para proporcionar el servicio que necesitas.</p>
-        <h4>¿En qué casos puede ser útil?</h4>
-        <div class="areas-grid-specific">
-            <div class="area-item">Ansiedad en la infancia o adolescencia</div>
-            <div class="area-item">Depresión en la infancia o adolescencia</div>
-            <div class="area-item">Baja autoestima</div>
-            <div class="area-item">Bullying o acoso escolar</div>
-            <div class="area-item">Dificultades en el rendimiento escolar</div>
-            <div class="area-item">Irritabilidad, agresividad y comportamientos violentos</div>
-            <div class="area-item">Problemas para relacionarse</div>
-            <div class="area-item">Duelos de personas queridas</div>
-            <div class="area-item">Adicciones (móvil, alcohol, drogas)</div>
-            <div class="area-item">Tránsitos o dudas sobre orientación sexual</div>
-            <div class="area-item">Trastornos de la alimentación infantil/juvenil</div>
-        </div>
-    </div>
+<div class="razon-card">
+<div class="razon-numero"><img src="razon4-experiencia.png" alt="Experiencia profesional" style="width: 40px; height: 40px;"></div>
+<div class="razon-content">
+<h3>Porque la experiencia cuenta</h3>
+<p>Llevamos años acompañando procesos de vida muy distintos. Y aunque cada persona es única, la experiencia nos da perspectiva, calma y herramientas para saber por dónde empezar... incluso cuando tú no lo tienes claro.</p>
+</div>
+</div>
 
-    <div id="familiarParejaInfoContent" style="display:none;">
-        <p>Muchas veces sufrimos dificultades con personas a las que queremos, la terapia de pareja o la terapia de familia tiene como objetivo mejorar las relaciones que tenemos, para así también mejorar nuestro bienestar.</p>
-        <p>La terapia de pareja o la terapia de familia es un recurso que sirve para encontrar vuestra manera de estar bien dentro de la relación. Cada uno tendrá su propio proceso. Se desarrollará según vuestra propia historia, situación actual, necesidades, ilusiones, o heridas.</p>
-        <p>La psicóloga se encargará desde una posición neutra de facilitaros vías más sanas de comunicación, donde de manera conjunta decidáis como avanzar hacia vuestros objetivos.</p>
-        <p>Para poder realizar una terapia de pareja o de familia, es muy importante que las personas implicadas estén dispuestas a comprometerse totalmente con el proceso.</p>
-        <p>Consulta sin compromiso nuestros servicios de terapia para parejas o para familias en Valladolid. Nuestro centro de psicología cuenta con los mejores psicólogos y psicólogas para proporcionar el servicio que necesitas.</p>
-        <h4>¿En qué casos puede ser útil?</h4>
-        <div class="areas-grid-specific">
-            <div class="area-item">Dificultades en la comunicación</div>
-            <div class="area-item">Convivencia</div>
-            <div class="area-item">Historia de vida, con sensación de desgaste</div>
-            <div class="area-item">Relaciones conflictivas con discusiones recurrentes</div>
-            <div class="area-item">Tensión y estrés que afectan al día a día</div>
-            <div class="area-item">En parejas: falta de confianza, celos, sospechas de infidelidad, relaciones sexuales insatisfactorias</div>
-            <div class="area-item">Nuevos miembros en la familia (hijos, hermanos, bebés)</div>
-            <div class="area-item">En pareja: ajustes respecto a la parentalidad</div>
-        </div>
-        <h4>¿Qué beneficios tiene?</h4>
-        <ul>
-            <li>No es necesario que haya grandes conflictos, la terapia de pareja o la terapia de familia funciona en situaciones límites como en situaciones preventivas, donde sentís que se puede estar gestando algo que queréis resolver para que no determine vuestro futuro.</li>
-            <li>Ayuda a los miembros que participan como grupo (familia o pareja), pero también ayuda a cada persona a aprender sobre sí misma. Nos hace tomar consciencia de cómo nuestras experiencias pasadas pueden afectar en las relaciones con el presente.</li>
-            <li>Se aprenden muchas herramientas que facilitan también las relaciones sociales en otros ámbitos, como la empatía, la escucha activa, la asertividad u otras maneras de enfrentar conflictos internos desde una comunicación sana y efectiva.</li>
-        </ul>
-    </div>
+<div class="razon-card">
+<div class="razon-numero"><img src="razon5-cuidado.png" alt="Cuidado y atención" style="width: 40px; height: 40px;"></div>
+<div class="razon-content">
+<h3>Porque aquí vas a sentirte cuidado</h3>
+<p>Queremos que, desde que entres por la puerta (física u online), sientas que este es un espacio para ti. Cálido, cercano, profesional, sin juicios. Un lugar donde puedas respirar y ser tú, sin tener que estar bien todo el rato.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <div id="grupoInfoContent" style="display:none;">
-        <p style="font-weight: bold; text-align: center; font-size: 1.2em; margin-bottom: 1em;">Juntos más fuertes</p>
-        <p>En Centro de Psicología Insight, ofrecemos un servicio especializado de terapia en grupo en Valladolid diseñado para proporcionar un espacio seguro y de apoyo donde los participantes pueden compartir sus experiencias, aprender unos de otros y desarrollar habilidades para afrontar sus desafíos emocionales.</p>
-        <p>Nuestra terapia en grupo en Valladolid está guiada por psicólogos experimentados que facilitan un ambiente de confianza y respeto. En este entorno, los participantes pueden explorar temas como la ansiedad, la depresión, el estrés, y las relaciones interpersonales, todo en compañía de personas que atraviesan situaciones similares. La dinámica grupal no solo permite un intercambio enriquecedor de perspectivas, sino que también fomenta el sentimiento de pertenencia y la solidaridad, aspectos esenciales para el proceso de sanación y crecimiento personal.</p>
-        <p>El grupo se convierte en un espejo donde cada miembro puede verse reflejado, comprendido y apoyado, logrando una mejor comprensión de sí mismo y de sus relaciones con los demás. Esta modalidad terapéutica es especialmente efectiva para quienes buscan mejorar su comunicación, aumentar su autoestima y desarrollar habilidades para manejar emociones difíciles en su vida diaria.</p>
-        <p>Si estás buscando terapia en grupo en Valladolid, en Centro de Psicología Insight te ofrecemos un espacio donde no estarás solo en tu proceso de crecimiento. Juntos, podemos construir un camino hacia una vida más plena y equilibrada.</p>
-        <p>Contacta con nosotros para más información y para unirte a nuestro próximo grupo terapéutico.</p>
-        
-        <h4>¿Cómo trabajamos?</h4>
-        <ul>
-            <li>Las sesiones de grupo tienen una duración de unos 90-120 minutos, se realizan con grupos entre 4 - 7 personas máximo para que se desarrollen de manera fluida y se favorezca la participación de cada miembro.</li>
-            <li>Trabajamos desde un área integral, con técnicas de diferentes modelos, que van a permitir una mayor apertura y conexión con el resto y contigo mismo:
-                <ul>
-                    <li>Psicodrama</li>
-                    <li>Mindfulness</li>
-                    <li>Cognitivo-conductual</li>
-                    <li>Sistémica</li>
-                    <li>Arteterapia...</li>
-                </ul>
-            </li>
-        </ul>
+<div class="section-spacer"></div>
 
-        <h4>¿Hay algún requisito para poder entrar?</h4>
-        <p>¡Si!,</p>
-        <ul>
-            <li>Lo primero y más importante que estés dispuesto a trabajar en grupo.</li>
-            <li>Compromiso con el grupo y con la asistencia.</li>
-            <li>Estar abierto a la posibilidad de ayudar y ser ayudado.</li>
-            <li>Respeto hacia los asistentes a la terapia.</li>
-            <li>Confidencialidad de todo aquello que se trate en la terapia de grupo.</li>
-        </ul>
+<section class="testimonios" id="testimonios">
+<div class="container">
+<h2 class="dual-title">Experiencias de clientes con los Psicólogos de <span class="brand-insight"><span class="in">In</span><span class="sight">Sight</span></span> en Valladolid</h2>
 
-        <h4>Además de trabajar sobre la temática del grupo ¿Qué se puede conseguir en una terapia de grupo?</h4>
-        <ul>
-            <li>Darte cuenta de tus emociones, conflictos internos, formas de relacionarte.</li>
-            <li>Descubrir tu potencial y la capacidad para desarrollar nuevas respuestas y comportamientos.</li>
-            <li>Conocerte mejor a ti mismo/a.</li>
-            <li>Ampliar tu red de apoyo social.</li>
-            <li>Reforzar tu autoestima.</li>
-        </ul>
-    </div>
+<div class="testimonios-slider-container">
+<div class="testimonios-slider" id="testimoniosSlider">
+<div class="testimonio-slide">
+<div class="testimonio-content">
+<div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonio-texto">«Llevo varios meses trabajando junto a Belén y mi experiencia no ha podido ser mejor desde el primer momento. Me he sentido acompañada y arropada en cada sesión; gracias a los deberes que me manda, las sesiones son súper productivas y cada día aprendo cosas nuevas que aplico en mi día a día. Estoy muy agradecida y tranquila sabiendo que voy de la mano de una gran profesional. ¡Qué orgullosa y feliz me siento al mirar atrás y ver cuánto he mejorado y evolucionado!»</p>
+<p class="testimonio-autor">- Sandra</p>
+</div>
+</div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    document.addEventListener('DOMContentLoaded',()=>{
-        // Simplified menu functionality - only handle floating menu button
-        const floatingMenuBtn=document.getElementById('floatingMenuBtn'),
-              simpleMobileMenu=document.getElementById('simpleMobileMenu'),
-              simpleMenuClose=document.getElementById('simpleMenuClose'),
-              whatsappBtn=document.getElementById('whatsappBtn'),
-              whatsappModal=document.getElementById('whatsappModal'),
-              modalClose=document.getElementById('modalClose');
-        
-        // Universal CTA button functionality (for whatsappModal)
-        const ctaButtons = document.querySelectorAll('.cta-button-universal');
-        ctaButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                if (whatsappModal) {
-                    whatsappModal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-        
-        // Function to open mobile menu
-        function openMobileMenu(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            simpleMobileMenu.classList.add('active');
-            document.body.style.overflow='hidden';
-        }
-        
-        // Mobile Menu Toggle for floating button only
-        if (floatingMenuBtn && simpleMobileMenu) {
-            floatingMenuBtn.addEventListener('click', openMobileMenu);
-        }
-        
-        if (simpleMenuClose && simpleMobileMenu) {
-            simpleMenuClose.addEventListener('click',(e)=>{
-                e.preventDefault();
-                e.stopPropagation();
-                simpleMobileMenu.classList.remove('active');
-                document.body.style.overflow='auto';
-            });
-        }
+<div class="testimonio-slide">
+<div class="testimonio-content">
+<div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonio-texto">«Me hicieron sentirme a gusto desde la primera sesión. Enseguida me dieron herramientas específicas para mis necesidades que me han servido muy bien. Una vez que pude manejar el día a día, indagamos más, siempre con trato amable y cercano. Buscan la manera adecuada de explicarte las cosas, lo cual se agradece mucho. Las recomendaría al 100 %.»</p>
+<p class="testimonio-autor">- Ángel Padilla Gutierrez</p>
+</div>
+</div>
 
-        // WhatsApp Modal
-        if (whatsappBtn && whatsappModal) {
-            whatsappBtn.addEventListener('click',()=>{whatsappModal.style.display='flex';document.body.style.overflow='hidden'});
-        }
-        if (modalClose && whatsappModal) {
-            modalClose.addEventListener('click',()=>{whatsappModal.style.display='none';document.body.style.overflow='auto'});
-            whatsappModal.addEventListener('click',e=>{if(e.target===whatsappModal){whatsappModal.style.display='none';document.body.style.overflow='auto';}});
-        }
-        
-        // MODAL functionality for areas
-        const areaModal = document.getElementById('area-modal');
-        const modalTitle = document.getElementById('modal-title'); // For area-modal
-        const modalDescription = document.getElementById('modal-description'); // For area-modal
-        const closeModalBtn = areaModal ? areaModal.querySelector('.close-modal') : null;
+<div class="testimonio-slide">
+<div class="testimonio-content">
+<div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonio-texto">«Una de las mejores decisiones de mi vida. Belén me ha hecho conocerme mucho más, interpretar contextos de mi entorno y entender aspectos donde reinaba la incomprensión. Solo puedo lanzar palabras de agradecimiento por lo mucho que ha significado para mí. ¡Un placer!»</p>
+<p class="testimonio-autor">- Daniel Rodríguez Valles</p>
+</div>
+</div>
 
-        const areaDescriptions = {
-            "Depresión": "La depresión se caracteriza por sentimientos persistentes de tristeza, pérdida de interés y energía. Ofrecemos un espacio seguro para explorar estos sentimientos, comprender sus causas y trabajar juntos hacia la recuperación de tu bienestar emocional.",
-            "Ansiedad y estrés": "La ansiedad y el estrés son respuestas naturales, pero cuando se vuelven excesivas pueden afectar tu vida. Te ayudamos a identificar desencadenantes y desarrollar estrategias efectivas para manejarlos.",
-            "Dependencia emocional": "Las relaciones de dependencia emocional pueden generar sufrimiento. Te acompañamos a construir relaciones más saludables, fortalecer tu autoestima y desarrollar tu autonomía.",
-            "Autoestima": "Fortalecer la autoestima es clave para el bienestar. Trabajamos contigo para que desarrolles una imagen más positiva y segura de ti mismo/a.",
-            "Apego y relaciones": "Exploramos tus patrones de apego y cómo influyen en tus relaciones, ayudándote a construir vínculos más sanos y satisfactorios.",
-            "Trauma": "El trauma puede dejar heridas profundas. Te ofrecemos un espacio seguro para procesar experiencias traumáticas y avanzar hacia la sanación.",
-            "Duelo": "El proceso de duelo es una respuesta natural ante una pérdida. Te acompañamos respetuosamente en este camino, ayudándote a procesar tus emociones.",
-            "Crisis vitales": "Las crisis vitales son oportunidades de crecimiento. Te ayudamos a transitar estos momentos de cambio y a encontrar nuevas perspectivas.",
-            "Gestión Emocional": "Aprender a identificar, comprender y regular tus emociones es fundamental. Te proporcionamos herramientas prácticas para mejorar tu inteligencia emocional.",
-            "Trastornos de alimentación": "Los trastornos de alimentación requieren un abordaje especializado. Te ofrecemos apoyo para sanar tu relación con la comida y tu cuerpo.",
-            "Ansiedad en la infancia o adolescencia": "La ansiedad en niños y adolescentes puede manifestarse como miedos, fobias u obsesiones. Ofrecemos apoyo especializado para ayudarles a gestionar estas emociones.",
-            "Depresión en la infancia o adolescencia": "Los estados de ánimo bajos prolongados en niños o adolescentes, a veces con ideación suicida o autolesiones, requieren atención profesional. Estamos aquí para ayudar.",
-            "Baja autoestima": "Los cambios constantes y la comparación social pueden afectar la confianza de niños y adolescentes. Trabajamos para fortalecer su autoestima.",
-            "Bullying o acoso escolar": "El acoso escolar tiene un impacto profundo. Ofrecemos un espacio seguro para abordar sus consecuencias y desarrollar estrategias de afrontamiento.",
-            "Dificultades en el rendimiento escolar": "La falta de motivación o las dificultades en el rendimiento escolar pueden tener diversas causas. Exploramos estas dificultades para encontrar soluciones.",
-            "Irritabilidad, agresividad y comportamientos violentos": "Ayudamos a niños y adolescentes a comprender y gestionar la irritabilidad, la agresividad y los comportamientos violentos, fomentando alternativas más saludables.",
-            "Problemas para relacionarse": "Las dificultades en las habilidades sociales pueden generar aislamiento. Trabajamos para mejorar la capacidad de relacionarse de forma positiva.",
-            "Duelos de personas queridas": "Acompañamos a niños y adolescentes en el proceso de duelo, ayudándoles a comprender y expresar sus emociones ante la pérdida.",
-            "Adicciones (móvil, alcohol, drogas)": "El inicio de conductas adictivas es una señal de alerta. Ofrecemos intervención temprana y apoyo para jóvenes y sus familias.",
-            "Tránsitos o dudas sobre orientación sexual": "Brindamos un espacio de escucha y acompañamiento respetuoso para adolescentes que exploran su identidad u orientación sexual.",
-            "Trastornos de la alimentación infantil/juvenil": "Los trastornos alimentarios en jóvenes requieren un enfoque especializado y sensible. Ofrecemos apoyo integral para la recuperación.",
-            "Dificultades en la comunicación": "Problemas para expresar necesidades, escuchar activamente o resolver malentendidos pueden afectar las relaciones. Te ayudamos a desarrollar habilidades de comunicación efectiva.",
-            "Convivencia": "Los desafíos en la convivencia diaria, como la distribución de tareas, los límites o las diferencias de opinión, pueden generar tensión. Ofrecemos herramientas para mejorar la armonía en el hogar.",
-            "Historia de vida, con sensación de desgaste": "Cuando las experiencias pasadas o la rutina actual generan una sensación de agotamiento en la relación, la terapia puede ayudar a revitalizar el vínculo y encontrar nuevas perspectivas.",
-            "Relaciones conflictivas con discusiones recurrentes": "Si las discusiones son frecuentes y no se llega a soluciones, la terapia ofrece un espacio para identificar patrones destructivos y aprender formas más sanas de resolver conflictos.",
-            "Tensión y estrés que afectan al día a día": "El estrés externo o interno puede impactar negativamente en las relaciones familiares o de pareja. Trabajamos para manejar el estrés y fortalecer el apoyo mutuo.",
-            "En parejas: falta de confianza, celos, sospechas de infidelidad, relaciones sexuales insatisfactorias": "Estos problemas pueden erosionar la intimidad y la conexión en la pareja. La terapia de pareja aborda estas dificultades para reconstruir la confianza y mejorar la satisfacción.",
-            "Nuevos miembros en la familia (hijos, hermanos, bebés)": "La llegada de nuevos miembros o la reconfiguración familiar puede generar adaptaciones y desafíos. Ofrecemos apoyo para transitar estos cambios de manera saludable.",
-            "En pareja: ajustes respecto a la parentalidad": "Las diferencias en estilos de crianza, la distribución de responsabilidades o el impacto de la paternidad/maternidad en la relación de pareja son temas comunes en terapia."
-        };
-        
-        // MODAL functionality for Service Info
-        const serviceInfoModal = document.getElementById('serviceInfoModal');
-        const serviceInfoModalTitle = document.getElementById('serviceInfoModalTitle');
-        const serviceInfoModalDescription = document.getElementById('serviceInfoModalDescription');
-        const serviceInfoModalClose = document.getElementById('serviceInfoModalClose');
-        const masInfoButtons = document.querySelectorAll('.btn-mas-info');
+<div class="testimonio-slide">
+<div class="testimonio-content">
+<div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonio-texto">«Estoy muy contenta con mi proceso en InSight. He estado 8 meses y me ha ayudado mucho a avanzar en el momento que estaba atravesando, sintiéndome acompañada y cuidada en todas las sesiones. ¡Muchísimas gracias!»</p>
+<p class="testimonio-autor">- Isa</p>
+</div>
+</div>
 
-        masInfoButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const targetId = this.dataset.modalTarget;
-                const title = this.dataset.modalTitle;
-                const contentElement = document.getElementById(targetId + 'Content');
-                
-                if (contentElement && serviceInfoModal) {
-                    serviceInfoModalTitle.textContent = title;
-                    serviceInfoModalDescription.innerHTML = contentElement.innerHTML;
-                    serviceInfoModal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
+<div class="testimonio-slide">
+<div class="testimonio-content">
+<div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonio-texto">«Llevo unos meses trabajando con Nuria. Me costó empezar terapia, pero desde el primer momento me sentí muy cómoda y todo ha ido rodado. Agradezco muchísimo a Nuria todos los avances y el aprendizaje de estos meses.»</p>
+<p class="testimonio-autor">- Lorena Manjarres</p>
+</div>
+</div>
 
-        if (serviceInfoModalClose) {
-            serviceInfoModalClose.addEventListener('click', () => {
-                serviceInfoModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-        }
-        if (serviceInfoModal) {
-            serviceInfoModal.addEventListener('click', e => {
-                if (e.target === serviceInfoModal) {
-                    serviceInfoModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
+<div class="testimonio-slide">
+<div class="testimonio-content">
+<div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonio-texto">«Mi experiencia con Nuria es maravillosa. Desde la primera sesión me sentí en confianza total. Cada vez controlo más mi ansiedad gracias a sus consejos y pautas; me estoy conociendo mucho más y gestionando mejor mis emociones. Estoy volviendo a ser yo; no puedo agradecer suficiente todo lo que me está ayudando. 😊❤️»</p>
+<p class="testimonio-autor">- Noelia Carrasco Cuesta</p>
+</div>
+</div>
 
-        function showAreaModal(title, description, useHtml = false) {
-            if (!areaModal) return;
-            if (modalTitle) modalTitle.textContent = title;
-            if (modalDescription) {
-                if (useHtml) {
-                    modalDescription.innerHTML = description;
-                } else {
-                    modalDescription.textContent = description;
-                }
-            }
-            areaModal.style.display = 'flex'; // Use flex for centering
+<div class="testimonio-slide">
+<div class="testimonio-content">
+<div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonio-texto">«Belén, gran profesional y gran persona; el trato es inmejorable. Sin su ayuda nada sería igual. Gracias por existir y por todo 🤍»</p>
+<p class="testimonio-autor">- Merxe Riomar</p>
+</div>
+</div>
+
+<div class="testimonio-slide">
+<div class="testimonio-content">
+<div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonio-texto">«Trabajo desde hace un año con Belén y está siendo una experiencia súper bonita y enriquecedora. Su trato es cercano, pero siempre me he sentido en manos de una auténtica profesional. Se lo recomiendo a cualquiera que quiera trabajar sobre sí mismo.»</p>
+<p class="testimonio-autor">- Laura del Pozo</p>
+</div>
+</div>
+
+<div class="testimonio-slide">
+<div class="testimonio-content">
+<div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonio-texto">«Un lugar bonito y acogedor para trabajar mis necesidades. Aún más importante: grandes profesionales, cercanas y se nota que aman lo que hacen. Muy recomendable.»</p>
+<p class="testimonio-autor">- Lidia Aceves Benito</p>
+</div>
+</div>
+
+<div class="testimonio-slide">
+<div class="testimonio-content">
+<div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonio-texto">«Mi experiencia ha sido muy buena; fui por una ruptura y me ayudaron muchísimo. Conecté rápido con Nuria, me inspiró confianza y todo ha ido rodado. Gestioné mucho mejor las situaciones gracias a sus deberes y a la forma de organizar cómo me sentía.»</p>
+<p class="testimonio-autor">- Alba Benito González</p>
+</div>
+</div>
+</div>
+
+<div class="testimonios-controls">
+<button class="testimonio-btn testimonio-prev" id="prevBtn">‹</button>
+<button class="testimonio-btn testimonio-next" id="nextBtn">›</button>
+</div>
+
+<div class="testimonios-dots" id="testimoniosDots"></div>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section id="sobre-terapia" class="insight">
+<div class="container">
+<div class="enfoque-hero-section">
+<div class="enfoque-content-left">
+<h2 class="dual-title">¿Qué es el <span class="brand-insight"><span class="in">In</span><span class="sight">Sight</span></span> en terapia?</h2>
+<p class="enfoque-subtitle">Revelación, comprensión repentina de tu yo más profundo, donde encontrar soluciones afines a ti y generar una mirada interior más completa.</p>
+
+<div class="volver-card">
+<div class="volver-icon">
+<i class="fas fa-compass"></i>
+</div>
+<div class="volver-content">
+<h3>Volver a ti</h3>
+<div class="volver-text">
+<p>Si te sientes estancado, si quieres sentirte mejor,</p>
+<p>si sientes que ya no te reconoces...</p>
+<p>Puede ser el momento de comenzar este camino, donde poner el foco en tu mirada interior.</p>
+<p class="volver-highlight">Merece la pena trabajar para volver a ti</p>
+</div>
+<div class="volver-cta">
+<button class="btn btn-enfoque cta-button-universal">Comienza tu camino</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="enfoque-image-right">
+<div class="enfoque-image-container">
+<img src="/post/wp-content/uploads/2025/06/DSC6307-logo-nci.jpg" alt="Psicología Valladolid enfoque terapéutico" class="enfoque-imagen-principal">
+<div class="enfoque-overlay">
+<div class="enfoque-badge">
+<span class="brand-insight"><span class="in">In</span><span class="sight">Sight</span></span>
+<p>Psicología</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section id="servicios" class="areas">
+<div class="container">
+<h2 class="dual-title better-contrast-text">Áreas de tratamiento <span class="accent">psicológico</span> en Valladolid</h2>
+<div class="areas-grid">
+<div class="area-item">Ansiedad</div>
+<div class="area-item">Obsesiones</div>
+<div class="area-item">Preocupaciones excesivas</div>
+<div class="area-item">Estrés</div>
+<div class="area-item">Relaciones de dependencia</div>
+<div class="area-item">Tristeza o Depresión</div>
+<div class="area-item">Duelo</div>
+<div class="area-item">Vacío existencial</div>
+<div class="area-item">Gestión emocional</div>
+<div class="area-item">Comunicación y asertividad</div>
+<div class="area-item">Miedos sobre tu salud</div>
+<div class="area-item">Fobias</div>
+<div class="area-item">Sentimiento de Soledad</div>
+</div>
+<div class="cta-container">
+<button class="btn cta-button-universal">Pide cita en Valladolid / online</button>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section class="servicios-grid">
+<div class="container">
+<h2 class="dual-title better-contrast-text">Nuestros servicios de <span class="accent">psicología</span> en Valladolid</h2>
+<div class="servicios-items-grid">
+<div class="servicio">
+<h3>Psicólogos para adultos</h3>
+<p>Terapia individual en Valladolid o de forma online, adaptada a tus necesidades.</p>
+</div>
+<div class="servicio servicio-online">
+<h3>Psicólogo online</h3>
+<p>Descubre los beneficios de la terapia online desde cualquier lugar, con la calidad y calidez de InSight Psicología.</p>
+</div>
+<div class="servicio">
+<h3>Terapia familiar y de pareja</h3>
+<p>Abordamos dificultades familiares o de pareja con un enfoque cercano y profesional.</p>
+</div>
+<div class="servicio">
+<h3>Terapia grupal</h3>
+<p>Sesiones para trabajar temas como ansiedad, soledad o depresión en un entorno de apoyo.</p>
+</div>
+<div class="servicio">
+<h3>Psicólogo infantil y adolescente</h3>
+<p>Terapia infantojuvenil para apoyar el desarrollo emocional de los más jóvenes.</p>
+</div>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section class="terapia-online">
+<div class="container">
+<h2 class="dual-title">¿Buscas Psicólogo <span class="accent">online</span>?</h2>
+<p class="subtitle">Descubre los beneficios de la terapia online en <span class="brand-insight"><span class="in">In</span><span class="sight">Sight</span></span> Psicología</p>
+
+<div class="benefits-grid">
+<div class="benefit-card">
+<i class="fas fa-home"></i>
+<h3>Comodidad</h3>
+<p>Sesiones desde tu propio espacio, sin desplazamientos</p>
+</div>
+<div class="benefit-card">
+<i class="fas fa-clock"></i>
+<h3>Flexibilidad</h3>
+<p>Horarios adapatables a tu rutina diaria</p>
+</div>
+<div class="benefit-card">
+<i class="fas fa-shield-alt"></i>
+<h3>Privacidad</h3>
+<p>Máxima confidencialidad y seguridad en cada sesión</p>
+</div>
+<div class="benefit-card">
+<i class="fas fa-laptop-medical"></i>
+<h3>Misma calidad</h3>
+<p>Atención psicológica profesional con igual efectividad</p>
+</div>
+<div class="benefit-card">
+<i class="fas fa-globe"></i>
+<h3>Accesibilidad</h3>
+<p>Disponible desde cualquier lugar con conexión a internet</p>
+</div>
+<div class="benefit-card">
+<i class="fas fa-heart"></i>
+<h3>Menos ansiedad</h3>
+<p>Ambiente familiar que reduce el estrés de la primera consulta</p>
+</div>
+</div>
+
+<div class="online-cta">
+<button class="btn cta-button-universal">Agenda tu primera sesión online</button>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section class="therapy-session">
+<div class="container">
+<div class="therapy-session-grid">
+<div class="therapy-session-image">
+<img src="post/wp-content/uploads/2025/06/DSC6546-nci.jpg" alt="Sesión de terapia con psicóloga en Valladolid">
+</div>
+<div class="therapy-session-content">
+<h2 class="dual-title">Terapia profesional en un ambiente <span class="accent">acogedor</span></h2>
+<p class="subtitle">Espacio de confianza para tu bienestar emocional</p>
+<p>Nuestras sesiones se desarrollan en un entorno cálido y seguro donde podrás expresarte libremente. La comunicación abierta y la escucha activa son fundamentales en nuestro proceso terapéutico.</p>
+<p>Cada persona es única, por eso adaptamos nuestras técnicas y enfoques a tus necesidades específicas, acompañándote en cada paso de tu proceso de crecimiento personal.</p>
+<div class="therapy-cta">
+<button class="btn cta-button-universal">Reserva tu primera consulta</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section class="personal-therapy" id="nosotros">
+<div class="container">
+<div class="personal-therapy-grid">
+<div class="personal-therapy-content">
+<h2 class="dual-title">Terapia personalizada <span class="accent">adaptada</span> a ti</h2>
+<p class="subtitle">En <span class="brand-insight"><span class="in">In</span><span class="sight">Sight</span></span> nos enfocamos en tu experiencia única</p>
+<p>Nuestro enfoque se basa en reconocer que cada persona es única, con sus propias experiencias, desafíos y fortalezas. Por eso diseñamos cada proceso terapéutico de manera individualizada, adaptándonos a tus necesidades específicas.</p>
+<p>Creamos un espacio seguro donde podrás explorar tus pensamientos, emociones y sentimientos sin juicios, acompañándote en tu camino hacia el bienestar emocional.</p>
+<div class="therapy-cta">
+<button class="btn cta-button-universal">Agenda tu sesión personalizada</button>
+</div>
+</div>
+<div class="personal-therapy-image">
+<img src="post/wp-content/uploads/2025/06/DSC6526-nci.jpg" alt="Psicóloga trabajando con paciente">
+</div>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section class="certificados">
+<div class="container">
+<h2 class="better-contrast-text">Psicólogos certificados en Valladolid por:</h2>
+<div class="certificados-logos">
+<a href="https://www.copcyl.es/index.php" target="_blank" rel="noopener">
+<img src="1d4ec2_9c3ab15c150c4324873b03a8171040f5~mv2.avif" alt="Colegio Oficial de Psicología de Castilla y León" class="certificado-img">
+</a>
+<a href="https://www.emdr-es.org/" target="_blank" rel="noopener">
+<img src="1d4ec2_bc1bde4987524e7a92e9e06c34f8996e~mv2.avif" alt="Asociación EMDR España" class="certificado-img">
+</a>
+<a href="https://www.mundopsicologos.com/centros/m-belen-hernandez?utm_source=352828&amp;utm_medium=widget&amp;utm_campaign=widget-company_stamp" target="_blank" rel="noopener">
+<img src="psicologovalladolid.avif" alt="Mundo Psicólogos - M. Belén Hernández" class="certificado-img">
+</a>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section class="menciones-medios">
+<div class="container">
+<h2 class="dual-title"><span class="brand-insight"><span class="in">In</span><span class="sight">Sight</span></span> Psicología en los <span class="accent">medios</span></h2>
+<p class="subtitle">Nuestro conocimiento y experiencia compartidos en medios y blogs especializados</p>
+
+<div class="medios-grid">
+<a href="https://www.cyltv.es/Noticia/F7D629A9-D4E9-94EF-76A53428AC15112A/Asi-recordamos-la-pandemia-cinco-anos-despues" class="medio-card" target="_blank" rel="noopener">
+<div class="medio-content">
+<h3>CYLTV</h3>
+<p>Así recordamos la pandemia cinco años después</p>
+</div>
+</a>
+<a href="https://psicoportal.com/psicoterapia/musicoterapia/" class="medio-card" target="_blank" rel="noopener">
+<div class="medio-content">
+<h3>PsicoPortal</h3>
+<p>Musicoterapia: beneficios en el tratamiento psicológico</p>
+</div>
+</a>
+<a href="https://psicoportal.com/teorias-psicologicas/teoria-de-argyris/" class="medio-card" target="_blank" rel="noopener">
+<div class="medio-content">
+<h3>PsicoPortal</h3>
+<p>Teoría de Argyris: el comportamiento organizacional</p>
+</div>
+</a>
+<a href="https://www.mamapsicologainfantil.com/6-frases-que-ninguna-abuela-o-abuelo/" class="medio-card" target="_blank" rel="noopener">
+<div class="medio-content">
+<h3>Mamá Psicóloga Infantil</h3>
+<p>6 frases que ninguna abuela o abuelo debería decir</p>
+</div>
+</a>
+<a href="https://www.mamapsicologainfantil.com/que-hacer-cuando-un-nino-de-3-anos-no/" class="medio-card" target="_blank" rel="noopener">
+<div class="medio-content">
+<h3>Mamá Psicóloga Infantil</h3>
+<p>Qué hacer cuando un niño de 3 años no obedece</p>
+</div>
+</a>
+<a href="https://www.psicologia-online.com/como-superar-una-ruptura-estando-enamorada-con-la-ayuda-de-un-psicologo-7316.html" class="medio-card" target="_blank" rel="noopener">
+<div class="medio-content">
+<h3>Psicología Online</h3>
+<p>Cómo superar una ruptura estando enamorada</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section class="recursos-gratuitos" id="recursos">
+<div class="container recursos-container-geom">
+<div class="recursos-header-geom">
+<div class="recursos-title-block">
+<h2 class="dual-title">
+Recursos Gratuitos Para Tu <span class="accent">Bienestar</span>
+</h2>
+<p class="subtitle">
+Contenido gratuito para inspirarte y crecer en tu camino emocional
+</p>
+</div>
+<div class="recursos-circulos-geom">
+<!-- Geometric decorative SVG circles, respecting style guide colors -->
+<svg width="100" height="56" viewBox="0 0 100 58" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<circle cx="20" cy="38" r="15" fill="#C7E2D9"></circle>
+<circle cx="50" cy="23" r="12" fill="#F4BFAD"></circle>
+<circle cx="85" cy="38" r="12" fill="#F5DABD"></circle>
+<circle cx="68" cy="15" r="7" fill="#D09193"></circle>
+<circle cx="32" cy="10" r="6" fill="#B7CBBF"></circle>
+</svg>
+</div>
+</div>
+<div class="recursos-grid-geom">
+<div class="recurso-card-geom">
+<div class="recurso-icon"><i class="fas fa-plane"></i></div>
+<div class="recurso-info">
+<h3>Manual para Vuelos Felices</h3>
+<p>Pautas y ejercicios concretos para superar tu miedo a volar, adaptables a cualquier miedo "irracional".</p>
+</div>
+</div>
+<div class="recurso-card-geom">
+<div class="recurso-icon"><i class="fas fa-brain"></i></div>
+<div class="recurso-info">
+<h3>Guía para Manejar la Ansiedad</h3>
+<p>Explora cómo se presenta la ansiedad en ti y aprende estrategias efectivas para gestionarla en tu día a día.</p>
+</div>
+</div>
+<div class="recurso-card-geom">
+<div class="recurso-icon"><i class="fas fa-heart-broken"></i></div>
+<div class="recurso-info">
+<h3>Sanar Heridas Emocionales</h3>
+<p>Identifica, comprende y sana esas heridas del pasado que aún influyen en tu vida y en tus relaciones.</p>
+</div>
+</div>
+<div class="recurso-card-geom">
+<div class="recurso-icon"><i class="fas fa-balance-scale"></i></div>
+<div class="recurso-info">
+<h3>Guía de Regulación Emocional</h3>
+<p>Aprende a manejar tus emociones diarias, desde la alegría hasta la tristeza, con compasión y aceptación.</p>
+</div>
+</div>
+</div>
+<div class="recursos-footer-geom">
+<div class="recursos-sociales">
+<p>Síguenos en redes sociales para más contenido gratuito:</p>
+<div class="recursos-social-icons">
+<a href="https://www.tiktok.com/@insight.psicologa" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a href="https://instagram.com/centropsicologiainsight" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://www.facebook.com/centropsicologiainsight" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://www.linkedin.com/company/centro-psicolog%C3%ADa-insight/" target="_blank"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+<div class="recursos-cta">
+<a href="https://www.centropsicologiainsight.com/materialdescargable" class="btn btn-recursos">Acceder a todos los recursos gratuitos</a>
+</div>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section class="instagram-section">
+<div class="container instagram-container">
+<div class="instagram-left">
+<h2 class="dual-title">
+Síguenos en <span class="accent">Instagram</span>
+</h2>
+<p class="subtitle">
+Descubre inspiración, herramientas y recursos gratuitos cada semana. <br>
+Únete a nuestra comunidad en Instagram para recibir consejos sobre bienestar emocional, manejo de la ansiedad, autoestima y mucho más.<br>
+<span style="display:inline-block;margin-top:10px;color:#D09193;">
+¡Conecta y crece con <span class="brand-insight"><span class="in">In</span><span class="sight">Sight</span></span> en redes sociales!
+</span>
+</p>
+<a href="https://instagram.com/centropsicologiainsight" class="btn btn-instagram" target="_blank" rel="noopener">
+<i class="fab fa-instagram"></i> Síguenos en Instagram
+</a>
+</div>
+<div class="instagram-right">
+<img src="post/wp-content/uploads/2025/06/DSC6627-nci.jpg" alt="Psicóloga con matrioshkas" class="instagram-side-image">
+</div>
+</div>
+<div class="instagram-feed-row">
+<!-- Instagram embed removed per user request -->
+</div>
+</section>
+<div class="section-spacer"></div>
+
+<section class="ubicacion" id="contacto">
+<div class="container">
+<h2 class="dual-title">Ubicación de <span class="brand-insight"><span class="in">In</span><span class="sight">Sight</span></span> <span class="accent">Psicología</span></h2>
+<div class="ubicacion-grid">
+<div class="ubicacion-info">
+<div class="nap-info">
+<h3>InSight Psicología</h3>
+<div class="contacto-item">
+<i class="fas fa-map-marker-alt"></i>
+<p>Calle Atrio de Santiago 7, 1A, Valladolid</p>
+</div>
+<div class="contacto-item">
+<i class="fas fa-phone"></i>
+<p><a href="tel:+34611731123">+34 611 73 11 23</a></p>
+</div>
+<div class="contacto-item">
+<i class="fas fa-envelope"></i>
+<p><a href="/cdn-cgi/l/email-protection#721a1d1e133211171c06001d02011b111d1e1d151b131b1c011b151a065c111d1f"><span class="__cf_email__" data-cfemail="fc9493909dbc9f9992888e938c8f959f9390939b959d95928f959b9488d29f9391">[email&nbsp;protected]</span></a></p>
+</div>
+</div>
+<div class="ubicacion-cta">
+<button class="btn cta-button-universal">Reserva tu primera consulta</button>
+</div>
+</div>
+<div class="ubicacion-mapa">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.240606579173!2d-4.7294301999999995!3d41.6505432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd476dac6fd31e4d%3A0x46554771ff7d453d!2sInSight%20Psic%C3%B3logos%20Valladolid%20y%20Psicoterapia%20online!5e0!3m2!1ses!2ses!4v1748384318443!5m2!1ses!2ses" width="100%" height="350" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+
+<div class="section-spacer"></div>
+
+</main>
+
+<footer role="contentinfo">
+<div class="footer-container">
+<div class="footer-logo">
+<img src="logo solo.png" alt="InSight Psicología Logo" style="height: 150px; width: auto;">
+</div>
+<div class="footer-info">
+<p><i class="fas fa-map-marker-alt"></i> Calle Atrio de Santiago 7, 1A, Valladolid</p>
+<p><i class="fas fa-envelope"></i>
+<a style="color:#fff" href="/cdn-cgi/l/email-protection#ddb5b2b1bc9dbeb8b3a9afb2adaeb4beb2b1b2bab4bcb4b3aeb4bab5a9f3beb2b0e2aea8bfb7b8bea9e08eb2b1b4beb4a9b2f8efedb4b3bbb2afb0bcbeb4f89eeef89feeb3">
+<span class="__cf_email__" data-cfemail="d9b1b6b5b899babcb7adabb6a9aab0bab6b5b6beb0b8b0b7aab0beb1adf7bab6b4">[email&nbsp;protected]</span></a></p>
+<p><i class="fas fa-phone"></i>
+<a style="color:#fff" href="tel:+34611731123">+34 611 73 11 23</a>
+</p>
+</div>
+<div class="footer-social">
+<a href="https://www.tiktok.com/@insight.psicologa" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a href="https://instagram.com/centropsicologiainsight" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://www.facebook.com/centropsicologiainsight" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://www.linkedin.com/company/centro-psicolog%C3%ADa-insight/" target="_blank"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+<div class="footer-bottom">
+<p> Copyright – InSight Psicología</p>
+<div class="footer-links">
+<a href="https://www.centropsicologiainsight.com/copia-de-aviso-legal.html">Aviso legal y Política de privacidad</a>
+<a href="https://www.centropsicologiainsight.com/copia-de-aviso-legal.html">Política de cookies</a>
+</div>
+<p class="eu-funding">Esta solución ha sido financiada por la Unión Europea – NextGenerationEU en el marco del Plan de Recuperación, Transformación y Resiliencia</p>
+</div>
+</footer>
+
+<div class="floating-buttons">
+<div class="floating-btn menu-btn" id="floatingMenuBtn"><i class="fas fa-bars"></i></div>
+<a href="tel:+34611731123" class="floating-btn phone-btn" aria-label="Llamar a un psicólogo">
+<i class="fas fa-phone-alt"></i>
+</a>
+<div class="floating-btn whatsapp-btn" id="whatsappBtn" aria-label="WhatsApp">
+<i class="fab fa-whatsapp"></i>
+</div>
+</div>
+
+<div class="modal" id="whatsappModal">
+<div class="modal-content">
+<div class="modal-close" id="modalClose"><i class="fas fa-times"></i></div>
+<h3 style="text-align:center;margin-bottom:20px">¿Cómo prefieres contactar con un psicólogo?</h3>
+<a href="https://wa.me/+34611731123" class="modal-option whatsapp">
+<i class="fab fa-whatsapp"></i><span>Mensaje WhatsApp</span>
+</a>
+<a href="tel:+34611731123" class="modal-option phone">
+<i class="fas fa-phone-alt"></i><span>Llamada telefónica</span>
+</a>
+<a href="/cdn-cgi/l/email-protection#422a2d2e230221272c36302d32312b212d2e2d252b232b2c312b252a366c212d2f" class="modal-option email">
+<i class="fas fa-envelope"></i><span>Enviar email</span>
+</a>
+</div>
+</div>
+
+<div id="info-modal" class="info-modal">
+<div class="info-modal-overlay"></div>
+<div class="info-modal-content">
+<button class="info-modal-close">×</button>
+<h2 id="info-modal-title"></h2>
+<div id="info-modal-body"></div>
+<div class="info-modal-actions">
+<a href="tel:+34611731123" class="info-modal-btn phone-btn">
+<i class="fas fa-phone"></i> Llamar
+</a>
+<a href="https://wa.me/+34611731123" class="info-modal-btn whatsapp-btn">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</a>
+<a href="/cdn-cgi/l/email-protection#741c1b18153417111a00061b04071d171b181b131d151d1a071d131c005a171b19" class="info-modal-btn email-btn">
+<i class="fas fa-envelope"></i> Email
+</a>
+</div>
+</div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Simplified menu functionality - only handle floating menu button
+    const floatingMenuBtn = document.getElementById('floatingMenuBtn'),
+          simpleMobileMenu = document.getElementById('simpleMobileMenu'),
+          simpleMenuClose = document.getElementById('simpleMenuClose'),
+          whatsappBtn = document.getElementById('whatsappBtn'),
+          whatsappModal = document.getElementById('whatsappModal'),
+          modalClose = document.getElementById('modalClose');
+
+    // Universal CTA button functionality
+    const ctaButtons = document.querySelectorAll('.cta-button-universal');
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            whatsappModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
-        }
-
-        // Event delegation for .area-item clicks inside ANY modal or on the page
-        document.body.addEventListener('click', function(event) {
-            const targetAreaItem = event.target.closest('.area-item');
-            if (targetAreaItem) {
-                 // Check if the area item is inside a modal that should allow area-modal popups
-                if (targetAreaItem.closest('#serviceInfoModalDescription') || targetAreaItem.closest('.sub-servicio-contenido')) {
-                    const areaText = targetAreaItem.textContent.trim();
-                    const description = areaDescriptions[areaText] || "Contáctanos para más información sobre este tratamiento.";
-                    showAreaModal(areaText, description);
-                }
-            }
-        });
-        
-
-        // Close area-modal functionality
-        if (closeModalBtn) {
-            closeModalBtn.onclick = function() {
-                if (areaModal) areaModal.style.display = 'none';
-                document.body.style.overflow = '';
-            };
-        }
-        
-        window.addEventListener('click', function(e) {
-            if (areaModal && e.target === areaModal) {
-                areaModal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-            // No need to handle serviceInfoModal here, already done
         });
     });
-    </script>
-    <footer>
-        <div class="footer-container">
-            <div class="footer-logo">
-                <a href="https://www.centropsicologiainsight.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="logo solo.png" alt="InSight Psicología Logo" style="height: 150px; width: auto;">
-                </a>
-            </div>
-            <div class="footer-info">
-                <p><i class="fas fa-map-marker-alt"></i> Calle Atrio de Santiago 7, 1A, Valladolid</p>
-                <p><i class="fas fa-envelope"></i> 
-                  <a style="color:#fff" href="/cdn-cgi/l/email-protection#94fcfbf8f5d4f7f1fae0e6fbe4e7fdf7fbf8fbf3fdf5fdfae7fdf3fce0baf7fbf9"><span class="__cf_email__" data-cfemail="e78f888b86a784828993958897948e84888b88808e868e89948e808f93c984888a">[email&#160;protected]</span></a>></p>
-                <p><i class="fas fa-phone"></i> 
-                  <a style="color:#fff" href="tel:+34611731123">611731123</a>
-                </p>
-            </div>
-            <div class="footer-social">
-                <a href="https://www.tiktok.com/@insight.psicologa" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://instagram.com/centropsicologiainsight" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/centropsicologiainsight" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/company/centro-psicolog%C3%ADa-insight/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p> Copyright – InSight Psicología</p>
-            <div class="footer-links">
-                <a href="https://www.centropsicologiainsight.com/copia-de-aviso-legal.html">Aviso legal y Política de privacidad</a>
-                <a href="https://www.centropsicologiainsight.com/copia-de-aviso-legal.html">Política de cookies</a>
-            </div>
-            <p class="eu-funding">Esta solución ha sido financiada por la Unión Europea – NextGenerationEU en el marco del Plan de Recuperación, Transformación y Resiliencia</p>
-        </div>
-    </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-</body>
-</html>
+
+    // Function to open mobile menu
+    function openMobileMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Botón de menú clicado'); // Depuración
+        simpleMobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Mobile Menu Toggle for floating button only
+    if (floatingMenuBtn && simpleMobileMenu) {
+        floatingMenuBtn.addEventListener('click', openMobileMenu);
+    } else {
+        console.error('Error: floatingMenuBtn o simpleMobileMenu no encontrados');
+    }
+
+    if (simpleMenuClose && simpleMobileMenu) {
+        simpleMenuClose.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            simpleMobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.simple-menu-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (simpleMobileMenu.classList.contains('active')) {
+                simpleMobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+
+    // WhatsApp Modal
+    if (whatsappBtn && whatsappModal) {
+        whatsappBtn.addEventListener('click', () => {
+            whatsappModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    if (modalClose && whatsappModal) {
+        modalClose.addEventListener('click', () => {
+            whatsappModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        whatsappModal.addEventListener('click', e => {
+            if (e.target === whatsappModal) {
+                whatsappModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // MODAL functionality for areas and services
+    const areaModal = document.getElementById('info-modal');
+    const modalTitle = document.getElementById('info-modal-title');
+    const modalBody = document.getElementById('info-modal-body');
+    const closeModalBtn = areaModal ? areaModal.querySelector('.info-modal-close') : null;
+
+    const areaDescriptions = {
+        "Ansiedad": "La ansiedad es una respuesta natural ante situaciones de estrés o peligro, pero cuando se vuelve excesiva o persistente puede convertirse en un problema. En InSight te ayudamos a identificar los desencadenantes de tu ansiedad y desarrollar estrategias efectivas para manejarla.",
+        "Obsesiones": "Las obsesiones son pensamientos, imágenes o impulsos recurrentes e intrusivos que causan malestar. Trabajamos para ayudarte a reconocer estos patrones obsesivos y desarrollar técnicas para reducir su impacto.",
+        "Preocupaciones excesivas": "Cuando las preocupaciones ocupan gran parte de tu tiempo y energía, pueden afectar tu bienestar emocional y físico. Te ayudamos a gestionar estas preocupaciones mediante técnicas de relajación, reestructuración cognitiva y desarrollo de una perspectiva más equilibrada ante los problemas.",
+        "Estrés": "El estrés crónico puede tener efectos negativos significativos en tu salud física y mental. En nuestro centro te ayudamos a identificar las fuentes de estrés en tu vida y desarrollar estrategias efectivas para reducirlo, mejorar tu resiliencia y recuperar tu equilibrio.",
+        "Relaciones de dependencia": "Las relaciones de dependencia emocional pueden generar sufrimiento y limitar tu crecimiento personal. Te acompañamos en el proceso de construir relaciones más saludables, fortalecer tu autoestima y desarrollar tu autonomía emocional.",
+        "Tristeza o Depresión": "La depresión se caracteriza por sentimientos persistentes de tristeza, pérdida de interés y energía. Ofrecemos un espacio seguro para explorar estos sentimientos, comprender sus causas y trabajar juntos hacia la recuperación de tu bienestar emocional.",
+        "Duelo": "El proceso de duelo es una respuesta natural ante una pérdida significativa. Te acompañamos respetuosamente en este camino, ayudándote a procesar tus emociones, honrar tu pérdida y adaptarte gradualmente a la nueva realidad.",
+        "Vacío existencial": "El vacío existencial puede manifestarse como una sensación de falta de sentido o propósito en la vida. Trabajamos contigo para explorar tus valores, reconectar con lo que es importante para ti y construir una vida con mayor significado personal.",
+        "Gestión emocional": "Aprender a identificar, comprender y regular nuestras emociones es fundamental para nuestro bienestar. Te proporcionamos herramientas prácticas para mejorar tu inteligencia emocional y responder de manera más adaptativa a los desafíos cotidianos.",
+        "Comunicación y asertividad": "La comunicación asertiva implica expresar tus pensamientos, sentimientos y necesidades de manera clara y respetuosa. Trabajamos contigo para mejorar tus habilidades comunicativas, ayudándote a expresarte con confianza y establecer relaciones más satisfactorias.",
+        "Miedos sobre tu salud": "Los miedos relacionados con la salud pueden generar preocupación constante y comportamientos de comprobación. Te ayudamos a comprender el origen de estos miedos y desarrollar una relación más equilibrada con tu cuerpo y tu salud.",
+        "Fobias": "Las fobias son miedos intensos y específicos que pueden limitar significativamente tu vida. Utilizamos técnicas eficaces para ayudarte a enfrentar gradualmente estos miedos, reducir tu ansiedad y recuperar tu libertad.",
+        "Sentimiento de Soledad": "El sentimiento de soledad puede surgir incluso estando rodeados de personas. Trabajamos contigo para explorar las causas de esta soledad, mejorar tu conexión contigo mismo y con los demás, y desarrollar relaciones más significativas."
+    };
+
+    const serviceDescriptions = {
+        "Psicólogos para adultos": "En InSight Psicología ayudamos a adultos a enfrentar diversos desafíos emocionales y psicológicos. Nuestro enfoque se adapta a cada persona, proporcionando herramientas específicas para mejorar tu bienestar.",
+        "Psicólogo infantil y adolescente": "Los niños y adolescentes se enfrentan a desafíos únicos durante su desarrollo. Nuestro equipo está especializado en proporcionar apoyo psicológico adaptado a cada etapa evolutiva.",
+        "Terapia familiar y de pareja": "Las relaciones familiares y de pareja pueden atravesar momentos difíciles que requieren ayuda profesional. En InSight ofrecemos terapia especializada para mejorar la comunicación, reducir conflictos y fortalecer vínculos.",
+        "Terapia grupal": "La terapia grupal ofrece un espacio compartido donde personas con experiencias similares pueden encontrar apoyo mutuo bajo la guía profesional. Beneficios: sentirte comprendido, aprender de otros y desarrollar habilidades sociales.",
+        "Psicólogo online": "La terapia online te permite acceder a atención psicológica profesional desde cualquier lugar. Beneficios: comodidad, ahorro de tiempo, accesibilidad y misma efectividad."
+    };
+
+    function openInfoModal(title, description) {
+        modalTitle.textContent = title;
+        modalBody.textContent = description;
+        areaModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeInfoModal() {
+        areaModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Event listeners for areas
+    document.querySelectorAll('.area-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const areaText = this.textContent.trim();
+            const description = areaDescriptions[areaText] || "Contáctanos para más información sobre este tratamiento.";
+            openInfoModal(areaText, description);
+        });
+    });
+
+    // Event listeners for services
+    document.querySelectorAll('.servicio').forEach(item => {
+        item.addEventListener('click', function() {
+            const serviceTitle = this.querySelector('h3') ? this.querySelector('h3').textContent.trim() : this.textContent.trim();
+            const description = serviceDescriptions[serviceTitle] || "Contáctanos para más información sobre este servicio.";
+            openInfoModal(serviceTitle, description);
+        });
+    });
+
+    // Close modal events
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeInfoModal);
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && areaModal.classList.contains('active')) {
+            closeInfoModal();
+        }
+    });
+
+    // Testimonios Slider
+    const slider = document.getElementById('testimoniosSlider');
+    const slides = document.querySelectorAll('.testimonio-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('testimoniosDots');
+
+    if (slider && slides.length > 0) {
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        const slidesToShow = window.innerWidth <= 768 ? 1 : (window.innerWidth <= 968 ? 2 : 3);
+        const maxSlides = Math.ceil(totalSlides / slidesToShow);
+
+        // Create dots based on number of slide groups
+        for (let i = 0; i < maxSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlider() {
+            const offset = currentSlide * 100;
+            slider.style.transform = `translateX(-${offset}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % maxSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + maxSlides) % maxSlides;
+            updateSlider();
+        }
+
+        // Event listeners
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        // Auto-play
+        setInterval(nextSlide, 8000);
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            location.reload(); // Simple solution to handle responsive changes
+        });
+    }
+});
