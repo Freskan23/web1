@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Sitemap with all URLs -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap.xml</loc>
+    <lastmod>2025-01-23T10:00:00+00:00</lastmod>
+  </sitemap>
+
+  <!-- Pages Sitemap - Main service and informational pages -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap-pages.xml</loc>
+    <lastmod>2025-01-23T09:00:00+00:00</lastmod>
+  </sitemap>
+
+  <!-- Services Sitemap - All therapy services -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap-services.xml</loc>
+    <lastmod>2025-01-20T12:00:00+00:00</lastmod>
+  </sitemap>
+
+  <!-- Treatments Sitemap - Specific treatment pages -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap-treatments.xml</loc>
+    <lastmod>2025-01-15T14:30:00+00:00</lastmod>
+  </sitemap>
+
+  <!-- Team Sitemap - Professional profiles -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap-team.xml</loc>
+    <lastmod>2025-01-10T11:00:00+00:00</lastmod>
+  </sitemap>
+
+  <!-- Blog Sitemap - Blog posts and articles -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap-blog.xml</loc>
+    <lastmod>2025-01-18T16:45:00+00:00</lastmod>
+  </sitemap>
+
+  <!-- Resources Sitemap - Free downloadable resources -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap-resources.xml</loc>
+    <lastmod>2025-01-12T13:20:00+00:00</lastmod>
+  </sitemap>
+
+  <!-- Local Pages Sitemap - Location-specific pages -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap-local.xml</loc>
+    <lastmod>2025-01-20T10:15:00+00:00</lastmod>
+  </sitemap>
+
+  <!-- Images Sitemap - Professional images and graphics -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap-images.xml</loc>
+    <lastmod>2025-01-15T08:30:00+00:00</lastmod>
+  </sitemap>
+
+  <!-- Video Sitemap - Therapy-related videos if any -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap-videos.xml</loc>
+    <lastmod>2025-01-10T15:00:00+00:00</lastmod>
+  </sitemap>
+
+  <!-- News Sitemap - Recent announcements and news -->
+  <sitemap>
+    <loc>https://www.centropsicologiainsight.com/sitemap-news.xml</loc>
+    <lastmod>2025-01-22T09:30:00+00:00</lastmod>
+  </sitemap>
+
+</sitemapindex>
