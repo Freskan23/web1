@@ -1429,6 +1429,13 @@ simpleMobileMenu.classList.remove('active');
 document.body.style.overflow='auto';
 });
 }
+// Close menu when a section link is clicked
+document.querySelectorAll('.simple-menu-link').forEach(link=>{
+link.addEventListener('click',()=>{
+simpleMobileMenu.classList.remove('active');
+document.body.style.overflow='auto';
+});
+});
 
 // WhatsApp Modal
 if (whatsappBtn && whatsappModal) {
@@ -1534,8 +1541,8 @@ dotsContainer.appendChild(dot);
 const dots = document.querySelectorAll('.dot');
 
 function updateSlider() {
-const slideWidth = 100 / slidesToShow;
-slider.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+const offset = currentSlide * 100;
+slider.style.transform = `translateX(-${offset}%)`;
 dots.forEach((dot, index) => {
 dot.classList.toggle('active', index === currentSlide);
 });
